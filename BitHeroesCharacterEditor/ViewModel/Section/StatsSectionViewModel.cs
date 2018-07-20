@@ -1,8 +1,9 @@
-﻿using GalaSoft.MvvmLight;
+﻿using BitHeroesCharacterEditor.Message;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public class StatsSectionViewModel : ViewModelBase
+    public class StatsSectionViewModel : BaseSectionViewModel
     {
         #region Stats
 
@@ -39,9 +40,19 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         #endregion
 
-        public StatsSectionViewModel()
+        public StatsSectionViewModel(
+            IMessenger messenger)
+            : base(messenger)
         {
+            
+        }
 
+        protected override void RegisterMessages()
+        {
+            MessengerInstance.Register<TestMessage>(this, m =>
+            {
+                return;
+            });
         }
     }
 }

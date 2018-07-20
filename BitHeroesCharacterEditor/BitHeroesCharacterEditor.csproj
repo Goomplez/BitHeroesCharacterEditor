@@ -71,8 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message\TestMessage.cs" />
     <Compile Include="ViewModel\Equipment\BaseEquipmentSlotViewModel.cs" />
     <Compile Include="ViewModel\Inventory\BaseInventorySlotViewModel.cs" />
+    <Compile Include="ViewModel\Section\BaseSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\StatsSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\EquipmentSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\InventorySectionViewModel.cs" />

@@ -1,4 +1,5 @@
 ﻿using BitHeroesCharacterEditor.ViewModel;
+using GalaSoft.MvvmLight.Messaging;
 using System.Windows;
 
 namespace BitHeroesCharacterEditor
@@ -7,9 +8,11 @@ namespace BitHeroesCharacterEditor
     {
         public MainWindow()
         {
-            var statsSectionViewModel = new StatsSectionViewModel();
-            var equipmentSectionViewModel = new EquipmentSectionViewModel();
-            var inventorySectionViewModel = new InventorySectionViewModel();
+            IMessenger messenger = new Messenger();
+
+            var statsSectionViewModel = new StatsSectionViewModel(messenger);
+            var equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
+            var inventorySectionViewModel = new InventorySectionViewModel(messenger);
 
             InitializeComponent();
 

@@ -1,10 +1,17 @@
-﻿using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public class InventorySectionViewModel : ViewModelBase
+    public class InventorySectionViewModel : BaseSectionViewModel
     {
-        public InventorySectionViewModel()
+        public InventorySectionViewModel(
+            IMessenger messenger)
+            : base(messenger)
+        {
+
+        }
+
+        protected override void RegisterMessages()
         {
 
         }
