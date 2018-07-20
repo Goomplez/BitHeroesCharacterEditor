@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="BitHeroesCharacterEditor.View.StatsSection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BitHeroesCharacterEditor.View"
+             xmlns:vm="clr-namespace:BitHeroesCharacterEditor.ViewModel"
+             d:DataContext="{d:DesignInstance Type=vm:StatsSectionViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- First Column -->
+        <StackPanel Grid.Column="0"
+                    Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBlock Text="Power: " />
+            <TextBlock Text="{Binding Power}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBlock Text="Stamina: " />
+            <TextBlock Text="{Binding Stamina}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="2"
+                    Orientation="Horizontal">
+            <TextBlock Text="Agility: " />
+            <TextBlock Text="{Binding Agility}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="3"
+                    Orientation="Horizontal">
+            <TextBlock Text="Total Stats: " />
+            <TextBlock Text="{Binding TotalStats}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="4"
+                    Orientation="Horizontal">
+            <TextBlock Text="Damage Bonus: " />
+            <TextBlock Text="{Binding DamageBonus}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="5"
+                    Orientation="Horizontal">
+            <TextBlock Text="Health Bonus: " />
+            <TextBlock Text="{Binding HealthBonus}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="6"
+                    Orientation="Horizontal">
+            <TextBlock Text="Speed Bonus: " />
+            <TextBlock Text="{Binding SpeedBonus}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="7"
+                    Orientation="Horizontal">
+            <TextBlock Text="Critical Chance: " />
+            <TextBlock Text="{Binding CriticalChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="8"
+                    Orientation="Horizontal">
+            <TextBlock Text="Evade Chance: " />
+            <TextBlock Text="{Binding EvadeChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0"
+                    Grid.Row="9"
+                    Orientation="Horizontal">
+            <TextBlock Text="Block Chance: " />
+            <TextBlock Text="{Binding BlockChance}" />
+        </StackPanel>
+
+        <!-- Second Column -->
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBlock Text="Life Steal: " />
+            <TextBlock Text="{Binding LifeSteal}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBlock Text="Damage Enrage: " />
+            <TextBlock Text="{Binding DamageEnrage}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="2"
+                    Orientation="Horizontal">
+            <TextBlock Text="Deflect Chance: " />
+            <TextBlock Text="{Binding DeflectChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="3"
+                    Orientation="Horizontal">
+            <TextBlock Text="Absorb Chance: " />
+            <TextBlock Text="{Binding AbsorbChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="4"
+                    Orientation="Horizontal">
+            <TextBlock Text="Damage Reduction: " />
+            <TextBlock Text="{Binding DamageReduction}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="5"
+                    Orientation="Horizontal">
+            <TextBlock Text="Dual Strike: " />
+            <TextBlock Text="{Binding DualStrike}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="6"
+                    Orientation="Horizontal">
+            <TextBlock Text="Empower Chance: " />
+            <TextBlock Text="{Binding EmpowerChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="7"
+                    Orientation="Horizontal">
+            <TextBlock Text="Redirect Chance: " />
+            <TextBlock Text="{Binding RedirectChance}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="8"
+                    Orientation="Horizontal">
+            <TextBlock Text="Quad Strike: " />
+            <TextBlock Text="{Binding QuadStrike}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

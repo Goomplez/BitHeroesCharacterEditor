@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BitHeroesCharacterEditor.View">
+    <Color x:Key="LighterRedColor">#FA616C</Color>
+    <Color x:Key="LightRedColor">#F93846</Color>
+    <Color x:Key="RedColor">#F80012</Color>
+    <Color x:Key="DarkRedColor">#C0000E</Color>
+    <Color x:Key="DarkerRedColor">#97000B</Color>
+
+    <Color x:Key="LighterGreenColor">#68DE56</Color>
+    <Color x:Key="LightGreenColor">#47D630</Color>
+    <Color x:Key="GreenColor">#1DD300</Color>
+    <Color x:Key="DarkGreenColor">#16A300</Color>
+    <Color x:Key="DarkerGreenColor">#118000</Color>
+
+    <Color x:Key="LighterBlueColor">#655DC5</Color>
+    <Color x:Key="LightBlueColor">#453CB6</Color>
+    <Color x:Key="BlueColor">#2419B2</Color>
+    <Color x:Key="DarkBlueColor">#1B1289</Color>
+    <Color x:Key="DarkerBlueColor">#120B6C</Color>
+
+    <Color x:Key="LighterYellowColor">#FFDB63</Color>
+    <Color x:Key="LightYellowColor">#FFD239</Color>
+    <Color x:Key="YellowColor">#FFC500</Color>
+    <Color x:Key="DarkYellowColor">#C59800</Color>
+    <Color x:Key="DarkerYellowColor">#9B7700</Color>
+
+    <SolidColorBrush x:Key="LighterRed" Color="{DynamicResource LighterRedColor}" />
+    <SolidColorBrush x:Key="LightRed" Color="{DynamicResource LightRedColor}" />
+    <SolidColorBrush x:Key="Red" Color="{DynamicResource RedColor}" />
+    <SolidColorBrush x:Key="DarkRed" Color="{DynamicResource DarkRedColor}" />
+    <SolidColorBrush x:Key="DarkerRed" Color="{DynamicResource DarkerRedColor}" />
+
+    <SolidColorBrush x:Key="LighterGreen" Color="{DynamicResource LighterGreenColor}" />
+    <SolidColorBrush x:Key="LightGreen" Color="{DynamicResource LightGreenColor}" />
+    <SolidColorBrush x:Key="Green" Color="{DynamicResource GreenColor}" />
+    <SolidColorBrush x:Key="DarkGreen" Color="{DynamicResource DarkGreenColor}" />
+    <SolidColorBrush x:Key="DarkerGreen" Color="{DynamicResource DarkerGreenColor}" />
+
+    <SolidColorBrush x:Key="LighterBlue" Color="{DynamicResource LighterBlueColor}" />
+    <SolidColorBrush x:Key="LightBlue" Color="{DynamicResource LightBlueColor}" />
+    <SolidColorBrush x:Key="Blue" Color="{DynamicResource BlueColor}" />
+    <SolidColorBrush x:Key="DarkBlue" Color="{DynamicResource DarkBlueColor}" />
+    <SolidColorBrush x:Key="DarkerBlue" Color="{DynamicResource DarkerBlueColor}" />
+
+    <SolidColorBrush x:Key="LighterYellow" Color="{DynamicResource LighterYellowColor}" />
+    <SolidColorBrush x:Key="LightYellow" Color="{DynamicResource LightYellowColor}" />
+    <SolidColorBrush x:Key="Yellow" Color="{DynamicResource YellowColor}" />
+    <SolidColorBrush x:Key="DarkYellow" Color="{DynamicResource DarkYellowColor}" />
+    <SolidColorBrush x:Key="DarkerYellow" Color="{DynamicResource DarkerYellowColor}" />
+
+    <Style x:Key="EquipmentButton" TargetType="Button">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Background" Value="{StaticResource DarkerBlue}" />
+        <Setter Property="Foreground" Value="{StaticResource LighterBlue}" />
+    </Style>
+
+    <Style x:Key="MyTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource LightBlue}" />
+    </Style>
+
+    <Style x:Key="MyTextBlock" TargetType="TextBlock">
+        <Setter Property="Background" Value="{StaticResource LightBlue}" />
+    </Style>
+
+    <Style x:Key="MyButton" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource LightBlue}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentControl>
+                        <Border Name="MyBorder" BorderBrush="Gray" BorderThickness="2">
+                            <ContentPresenter />
+                        </Border>
+                    </ContentControl>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="MyBorder" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
