@@ -50,6 +50,7 @@
                 <CheckBox Content="Finger" />
                 <CheckBox Content="Accessory" />
                 <CheckBox Content="Pet" />
+                <CheckBox Content="Mount" />
             </StackPanel>
         </StackPanel>
 

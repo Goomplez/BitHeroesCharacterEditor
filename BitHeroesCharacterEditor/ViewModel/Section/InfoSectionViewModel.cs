@@ -3,7 +3,7 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public class StatsSectionViewModel : BaseSectionViewModel
+    public class InfoSectionViewModel : BaseSectionViewModel
     {
         #region Stats
 
@@ -14,23 +14,30 @@ namespace BitHeroesCharacterEditor.ViewModel
         public int DamageBonus;
         public int HealthBonus;
         public int SpeedBonus;
+
+        #endregion
+        #region Offensive Bonuses
+
         public int CriticalChance;
         public int CriticalDamage;
-        public int EvadeChance;
-        public int BlockChance;
-        public int LifeSteal;
         public int DamageEnrage;
-        public int DeflectChance;
-        public int AbsorbChance;
-        public int DamageReduction;
         public int DualStrike;
         public int EmpowerChance;
-        public int RedirectChance;
         public int QuadStrike;
 
         #endregion
+        #region Defensive Bonuses
 
-        #region Bonuses
+        public int EvadeChance;
+        public int BlockChance;
+        public int LifeSteal;
+        public int DeflectChance;
+        public int AbsorbChance;
+        public int DamageReduction;
+        public int RedirectChance;
+
+        #endregion
+        #region Passive Bonuses
 
         public int ItemFind;
         public int GoldFind;
@@ -40,7 +47,7 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         #endregion
 
-        public StatsSectionViewModel(
+        public InfoSectionViewModel(
             IMessenger messenger)
             : base(messenger)
         {

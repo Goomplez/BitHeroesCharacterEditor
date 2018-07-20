@@ -2,9 +2,9 @@
 
 namespace BitHeroesCharacterEditor.View
 {
-    public partial class StatsSection : UserControl
+    public partial class PassiveBonusesUserControl : UserControl
     {
-        public StatsSection()
+        public PassiveBonusesUserControl()
         {
             InitializeComponent();
         }

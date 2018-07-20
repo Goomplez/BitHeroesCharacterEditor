@@ -75,7 +75,7 @@
     <Compile Include="ViewModel\Equipment\BaseEquipmentSlotViewModel.cs" />
     <Compile Include="ViewModel\Inventory\BaseInventorySlotViewModel.cs" />
     <Compile Include="ViewModel\Section\BaseSectionViewModel.cs" />
-    <Compile Include="ViewModel\Section\StatsSectionViewModel.cs" />
+    <Compile Include="ViewModel\Section\InfoSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\EquipmentSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\InventorySectionViewModel.cs" />
     <Compile Include="View\Section\EquipmentSection.xaml.cs">
@@ -84,8 +84,20 @@
     <Compile Include="View\Section\InventorySection.xaml.cs">
       <DependentUpon>InventorySection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Section\StatsSection.xaml.cs">
-      <DependentUpon>StatsSection.xaml</DependentUpon>
+    <Compile Include="View\Section\InfoSection.xaml.cs">
+      <DependentUpon>InfoSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\StatsUserControl.xaml.cs">
+      <DependentUpon>StatsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\DefensiveBonusesUserControl.xaml.cs">
+      <DependentUpon>DefensiveBonusesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\OffensiveBonusesUserControl.xaml.cs">
+      <DependentUpon>OffensiveBonusesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PassiveBonusesUserControl.xaml.cs">
+      <DependentUpon>PassiveBonusesUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -107,11 +119,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Section\StatsSection.xaml">
+    <Page Include="View\Section\InfoSection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\StatsUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\DefensiveBonusesUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\OffensiveBonusesUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\PassiveBonusesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,7 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="View\UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,13 +10,13 @@ namespace BitHeroesCharacterEditor
         {
             IMessenger messenger = new Messenger();
 
-            var statsSectionViewModel = new StatsSectionViewModel(messenger);
+            var infoSectionViewModel = new InfoSectionViewModel(messenger);
             var equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
             var inventorySectionViewModel = new InventorySectionViewModel(messenger);
 
             InitializeComponent();
 
-            StatsSection.DataContext = statsSectionViewModel;
+            InfoSection.DataContext = infoSectionViewModel;
             EquipmentSection.DataContext = equipmentSectionViewModel;
             InventorySection.DataContext = inventorySectionViewModel;
         }

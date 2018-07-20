@@ -83,4 +83,18 @@
         </Setter>
     </Style>
 
+    <Style x:Key="MySection" TargetType="UserControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControl">
+                    <Border Name="SectionBorder" BorderBrush="{StaticResource DarkRed}" BorderThickness="2" Margin="5">
+                        <Grid Background="{StaticResource LighterGreen}">
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

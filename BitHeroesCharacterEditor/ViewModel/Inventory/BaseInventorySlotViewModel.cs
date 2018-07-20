@@ -4,6 +4,9 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public class BaseInventorySlotViewModel : ViewModelBase
     {
+        public BaseInventorySlotViewModel()
+        {
 
+        }
     }
 }

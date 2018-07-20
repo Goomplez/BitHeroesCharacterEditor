@@ -9,6 +9,13 @@
         Title="Bit Heroes Character Editor"
         Height="800"
         Width="1400">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -19,17 +26,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <view:StatsSection
-            x:Name="StatsSection"
+        <view:InfoSection
+            x:Name="InfoSection"
             Grid.Column="0"
-            Grid.Row="0" />
+            Grid.Row="0"
+            Style="{StaticResource MySection}" />
         <view:EquipmentSection
             x:Name="EquipmentSection"
             Grid.Column="0"
-            Grid.Row="1" />
+            Grid.Row="1"
+            Style="{StaticResource MySection}" />
         <view:InventorySection
             x:Name="InventorySection"
             Grid.Column="1"
-            Grid.RowSpan="2" />
+            Grid.RowSpan="2"
+            Style="{StaticResource MySection}" />
     </Grid>
 </Window>
