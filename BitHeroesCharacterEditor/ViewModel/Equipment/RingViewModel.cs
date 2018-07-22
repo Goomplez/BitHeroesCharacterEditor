@@ -2,11 +2,11 @@
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public class FingerViewModel : BaseItemViewModel
+    public class RingViewModel : BaseItemViewModel
     {
-        public FingerViewModel()
+        public RingViewModel()
         {
-            Slot = ItemSlot.Finger;
+            Slot = ItemSlot.Ring;
         }
     }
 }

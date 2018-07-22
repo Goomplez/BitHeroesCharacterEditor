@@ -8,7 +8,7 @@
         Head = 3,
         Body = 4,
         Neck = 5,
-        Finger = 6,
+        Ring = 6,
         Accessory = 7,
         Pet = 8,
         Mount = 9

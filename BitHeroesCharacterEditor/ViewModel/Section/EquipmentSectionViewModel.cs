@@ -19,7 +19,7 @@ namespace BitHeroesCharacterEditor.ViewModel
         public HeadViewModel Head { get; set; }
         public BodyViewModel Body { get; set; }
         public NeckViewModel Neck { get; set; }
-        public FingerViewModel Finger { get; set; }
+        public RingViewModel Ring { get; set; }
         public PetViewModel Pet { get; set; }
         public AccessoryViewModel Accessory { get; set; }
         public MountViewModel Mount { get; set; }
@@ -88,7 +88,7 @@ namespace BitHeroesCharacterEditor.ViewModel
                     Agility = 30
                 }
             };
-            Finger = new FingerViewModel
+            Ring = new RingViewModel
             {
                 ItemName = "Robotics Chip",
                 Quality = ItemQuality.Epic,
@@ -137,7 +137,7 @@ namespace BitHeroesCharacterEditor.ViewModel
                 Head,
                 Body,
                 Neck,
-                Finger,
+                Ring,
                 Accessory,
                 Pet,
                 Mount
@@ -153,7 +153,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             MessengerInstance.Register<EquipItemMessage<HeadViewModel>>(this, m => { Head = m.Vm; });
             MessengerInstance.Register<EquipItemMessage<BodyViewModel>>(this, m => { Body = m.Vm; });
             MessengerInstance.Register<EquipItemMessage<NeckViewModel>>(this, m => { Neck = m.Vm; });
-            MessengerInstance.Register<EquipItemMessage<FingerViewModel>>(this, m => { Finger = m.Vm; });
+            MessengerInstance.Register<EquipItemMessage<RingViewModel>>(this, m => { Ring = m.Vm; });
             MessengerInstance.Register<EquipItemMessage<PetViewModel>>(this, m => { Pet = m.Vm; });
             MessengerInstance.Register<EquipItemMessage<AccessoryViewModel>>(this, m => { Accessory = m.Vm; });
             MessengerInstance.Register<EquipItemMessage<MountViewModel>>(this, m => { Mount = m.Vm; });

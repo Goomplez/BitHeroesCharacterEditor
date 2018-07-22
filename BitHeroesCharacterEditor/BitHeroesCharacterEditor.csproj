@@ -82,7 +82,7 @@
     <Compile Include="ViewModel\Equipment\AccessoryViewModel.cs" />
     <Compile Include="ViewModel\Equipment\BaseItemViewModel.cs" />
     <Compile Include="ViewModel\Equipment\BodyViewModel.cs" />
-    <Compile Include="ViewModel\Equipment\FingerViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\RingViewModel.cs" />
     <Compile Include="ViewModel\Equipment\HeadViewModel.cs" />
     <Compile Include="ViewModel\Equipment\MainhandViewModel.cs" />
     <Compile Include="ViewModel\Equipment\MountViewModel.cs" />

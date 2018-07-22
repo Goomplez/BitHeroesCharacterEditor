@@ -26,6 +26,21 @@
             FontSize="32">
         <Button.ToolTip>
             <Grid Background="Black">
+                <Grid.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Margin" Value="10" />
+                        <Setter Property="Orientation" Value="Horizontal" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                    </Style>
+                    <Style BasedOn="{StaticResource 8BitFontSmall}" TargetType="TextBlock">
+                        <Setter Property="Margin" Value="10" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="10" />
+                    </Style>
+                </Grid.Resources>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -35,18 +50,15 @@
                 </Grid.RowDefinitions>
 
                 <!--<TextBlock Text="&#xe900;" FontFamily="{StaticResource RpgAwesome}" />-->
-                
+ 
                 <TextBlock x:Name="ItemName"
                            Grid.Row="0"
-                           Margin="10"
                            Text="{Binding ItemName}"
-                           Style="{StaticResource 8BitFontSmall}"
-                           Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}"
-                           HorizontalAlignment="Center" />
+                           TextWrapping="Wrap"
+                           MaxWidth="300"
+                           Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}" />
 
-                <Grid x:Name="IconQualitySlotTier"
-                      Grid.Row="1"
-                      Margin="10">
+                <Grid x:Name="IconQualitySlotTier" Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -57,71 +69,44 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0"
-                               Grid.Row="0"
-                               Grid.RowSpan="3"
-                               Margin="10"
-                               Text="Image"
-                               Width="60"
-                               Height="60"
-                               Style="{StaticResource 8BitFontSmall}" />
+                    <Border Grid.Column="0"
+                            Grid.Row="0"
+                            Grid.RowSpan="3"
+                            BorderBrush="Aqua"
+                            BorderThickness="2"
+                            Width="140"
+                            Height="140">
+                        <TextBlock Text="Image" />
+                    </Border>
                     <TextBlock Grid.Column="1"
                                Grid.Row="0"
-                               Margin="10"
                                Text="{Binding Quality}"
-                               Style="{StaticResource 8BitFontSmall}"
-                               Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}" />
+                               Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}"
+                               HorizontalAlignment="Left"/>
                     <TextBlock Grid.Column="1"
                                Grid.Row="1"
-                               Margin="10"
                                Text="{Binding Slot}"
-                               Style="{StaticResource 8BitFontSmall}"
-                               Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}" />
-                    <StackPanel Grid.Column="1"
-                                Grid.Row="2"
-                                Margin="10"
-                                Orientation="Horizontal">
-                        <TextBlock Text="Tier "
-                                   Style="{StaticResource 8BitFontSmall}"
-                                   Foreground="DimGray" />
-                        <TextBlock Text="{Binding Tier}"
-                                   Style="{StaticResource 8BitFontSmall}"
-                                   Foreground="DimGray" />
+                               Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}"
+                               HorizontalAlignment="Left" />
+                    <StackPanel Grid.Column="1" Grid.Row="2" Margin="0">
+                        <TextBlock Text="Tier " Foreground="DimGray" />
+                        <TextBlock Text="{Binding Tier}" Foreground="DimGray" />
                     </StackPanel>
-                    
                 </Grid>
 
-                <StackPanel x:Name="Power"
-                            Grid.Row="2"
-                            Margin="10"
-                            Orientation="Horizontal">
-                    <Image Source="../../../Images/Power.png" />
-                    <TextBlock Text="{Binding Stats.Power}"
-                               Style="{StaticResource 8BitFontSmall}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                <StackPanel x:Name="Power" Grid.Row="2">
+                    <Image Source="../../../Images/Power.png" Margin="0,0,40,0" />
+                    <TextBlock Text="{Binding Stats.Power}" />
                 </StackPanel>
 
-                <StackPanel x:Name="Stamina"
-                            Grid.Row="3"
-                            Margin="10"
-                            Orientation="Horizontal">
-                    <Image Source="../../../Images/Stamina.png" />
-                    <TextBlock Text="{Binding Stats.Stamina}"
-                               Style="{StaticResource 8BitFontSmall}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                <StackPanel x:Name="Stamina" Grid.Row="3">
+                    <Image Source="../../../Images/Stamina.png" Margin="0,0,40,0" />
+                    <TextBlock Text="{Binding Stats.Stamina}" />
                 </StackPanel>
 
-                <StackPanel x:Name="Agility"
-                            Grid.Row="4"
-                            Margin="10"
-                            Orientation="Horizontal">
-                    <Image Source="../../../Images/Agility.png" />
-                    <TextBlock Text="{Binding Stats.Agility}"
-                               Style="{StaticResource 8BitFontSmall}"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                <StackPanel x:Name="Agility" Grid.Row="4">
+                    <Image Source="../../../Images/Agility.png" Margin="0,0,40,0" />
+                    <TextBlock Text="{Binding Stats.Agility}" />
                 </StackPanel>
             </Grid>
         </Button.ToolTip>

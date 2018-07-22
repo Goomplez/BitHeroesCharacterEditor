@@ -51,7 +51,7 @@
                 <CheckBox Content="Head" />
                 <CheckBox Content="Body" />
                 <CheckBox Content="Neck" />
-                <CheckBox Content="Finger" />
+                <CheckBox Content="Ring" />
                 <CheckBox Content="Accessory" />
                 <CheckBox Content="Pet" />
                 <CheckBox Content="Mount" />
