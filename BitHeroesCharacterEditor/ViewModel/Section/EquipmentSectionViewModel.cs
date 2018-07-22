@@ -1,4 +1,5 @@
-﻿using BitHeroesCharacterEditor.Message;
+﻿using System.Collections.ObjectModel;
+using BitHeroesCharacterEditor.Message;
 using BitHeroesCharacterEditor.Model;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -10,6 +11,8 @@ namespace BitHeroesCharacterEditor.ViewModel
         private RelayCommand _command;
 
         public RelayCommand Command => _command ?? (_command = new RelayCommand(Method));
+
+        public ObservableCollection<BaseItemViewModel> List { get; set; }
 
         public MainhandViewModel Mainhand { get; set; }
         public OffhandViewModel Offhand { get; set; }
@@ -30,59 +33,82 @@ namespace BitHeroesCharacterEditor.ViewModel
                 ItemName = "Aptitude",
                 Quality = ItemQuality.Legendary,
                 Tier = 7,
-                Power = 20,
-                Stamina = 240,
-                Agility = 20
+                Stats =
+                {
+                    Power = 20,
+                    Stamina = 240,
+                    Agility = 20
+                }
             };
             Offhand = new OffhandViewModel
             {
                 ItemName = "Flight Calibrator",
                 Quality = ItemQuality.Epic,
                 Tier = 7,
-                Power = 18,
-                Stamina = 156,
-                Agility = 18
+                Stats =
+                {
+                    Power = 18,
+                    Stamina = 156,
+                    Agility = 18
+                }
             };
             Head = new HeadViewModel
             {
                 ItemName = "Eye Of Treachery",
                 Quality = ItemQuality.Legendary,
                 Tier = 6,
-                Power = 20,
-                Stamina = 170,
-                Agility = 20
+                Stats =
+                {
+                    Power = 20,
+                    Stamina = 170,
+                    Agility = 20
+                }
             };
             Body = new BodyViewModel
             {
                 ItemName = "Surveyor's Garb",
                 Quality = ItemQuality.Epic,
                 Tier = 7,
-                Power = 18,
-                Stamina = 156,
-                Agility = 18
+                Stats =
+                {
+                    Power = 18,
+                    Stamina = 156,
+                    Agility = 18
+                }
             };
             Neck = new NeckViewModel
             {
                 ItemName = "Mechanical Enhancement",
                 Quality = ItemQuality.Epic,
                 Tier = 7,
-                Power = 132,
-                Stamina = 30,
-                Agility = 30
+                Stats =
+                {
+                    Power = 132,
+                    Stamina = 30,
+                    Agility = 30
+                }
             };
             Finger = new FingerViewModel
             {
                 ItemName = "Robotics Chip",
                 Quality = ItemQuality.Epic,
                 Tier = 7,
-                Power = 132,
-                Stamina = 30,
-                Agility = 30
+                Stats =
+                {
+                    Power = 132,
+                    Stamina = 30,
+                    Agility = 30
+                }
             };
             Accessory = new AccessoryViewModel
             {
                 ItemName = "Volrea",
-                Quality = ItemQuality.Rare
+                Quality = ItemQuality.Rare,
+                Stats =
+                {
+                    DamageReduction = 8,
+                    AbsorbChance = 2
+                }
             };
             Pet = new PetViewModel
             {
@@ -94,10 +120,30 @@ namespace BitHeroesCharacterEditor.ViewModel
                 ItemName = "Tort",
                 Quality = ItemQuality.Epic,
                 Tier = 7,
-                Power = 188,
-                Stamina = 0,
-                Agility = 4
+                Stats =
+                {
+                    Power = 188,
+                    Stamina = 0,
+                    Agility = 4,
+                    EvadeChance = 3,
+                    MovementSpeed = 20
+                }
             };
+
+            List = new ObservableCollection<BaseItemViewModel>
+            {
+                Mainhand,
+                Offhand,
+                Head,
+                Body,
+                Neck,
+                Finger,
+                Accessory,
+                Pet,
+                Mount
+            };
+
+            Method();
         }
 
         protected override void RegisterMessages()
@@ -115,7 +161,37 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         public void Method()
         {
-            MessengerInstance.Send(new TestMessage("test"));
+            var stats = new StatsViewModel();
+
+            foreach (BaseItemViewModel item in List)
+            {
+                stats.Power += item.Stats.Power;
+                stats.Stamina += item.Stats.Stamina;
+                stats.Agility += item.Stats.Agility;
+                stats.DamageBonus += item.Stats.DamageBonus;
+                stats.HealthBonus += item.Stats.HealthBonus;
+                stats.SpeedBonus += item.Stats.SpeedBonus;
+                stats.CriticalChance += item.Stats.CriticalChance;
+                stats.CriticalDamage += item.Stats.CriticalDamage;
+                stats.DamageEnrage += item.Stats.DamageEnrage;
+                stats.DualStrike += item.Stats.DualStrike;
+                stats.EmpowerChance += item.Stats.EmpowerChance;
+                stats.QuadStrike += item.Stats.QuadStrike;
+                stats.EvadeChance += item.Stats.EvadeChance;
+                stats.BlockChance += item.Stats.BlockChance;
+                stats.LifeSteal += item.Stats.LifeSteal;
+                stats.DeflectChance += item.Stats.DeflectChance;
+                stats.AbsorbChance += item.Stats.AbsorbChance;
+                stats.DamageReduction += item.Stats.DamageReduction;
+                stats.RedirectChance += item.Stats.RedirectChance;
+                stats.ItemFind += item.Stats.ItemFind;
+                stats.GoldFind += item.Stats.GoldFind;
+                stats.Experience += item.Stats.Experience;
+                stats.MovementSpeed += item.Stats.MovementSpeed;
+                stats.CaptureRate += item.Stats.CaptureRate;
+            }
+
+            MessengerInstance.Send(new UpdateStatsMessage(stats));
         }
     }
 }

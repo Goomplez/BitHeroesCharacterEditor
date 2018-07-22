@@ -29,23 +29,27 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <local:StatsUserControl 
+        <local:StatsUserControl
             x:Name="StatsControl"
+            DataContext="{Binding Stats}"
             Grid.Column="0"
             Grid.Row="0"
             Style="{StaticResource MySection}" />
-        <local:PassiveBonusesUserControl 
+        <local:PassiveBonusesUserControl
             x:Name="PassiveBonusesControl"
+            DataContext="{Binding Stats}"
             Grid.Column="0"
             Grid.Row="1"
             Style="{StaticResource MySection}" />
-        <local:OffensiveBonusesUserControl 
+        <local:OffensiveBonusesUserControl
             x:Name="OffensiveBonusesControl"
+            DataContext="{Binding Stats}"
             Grid.Column="1"
             Grid.Row="0"
             Style="{StaticResource MySection}" />
         <local:DefensiveBonusesUserControl
             x:Name="DefensiveBonusesControl"
+            DataContext="{Binding Stats}"
             Grid.Column="1"
             Grid.Row="1"
             Style="{StaticResource MySection}" />

@@ -96,7 +96,7 @@
                             Margin="10"
                             Orientation="Horizontal">
                     <Image Source="../../../Images/Power.png" />
-                    <TextBlock Text="{Binding Power}"
+                    <TextBlock Text="{Binding Stats.Power}"
                                Style="{StaticResource 8BitFontSmall}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
@@ -107,7 +107,7 @@
                             Margin="10"
                             Orientation="Horizontal">
                     <Image Source="../../../Images/Stamina.png" />
-                    <TextBlock Text="{Binding Stamina}"
+                    <TextBlock Text="{Binding Stats.Stamina}"
                                Style="{StaticResource 8BitFontSmall}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
@@ -118,7 +118,7 @@
                             Margin="10"
                             Orientation="Horizontal">
                     <Image Source="../../../Images/Agility.png" />
-                    <TextBlock Text="{Binding Agility}"
+                    <TextBlock Text="{Binding Stats.Agility}"
                                Style="{StaticResource 8BitFontSmall}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
