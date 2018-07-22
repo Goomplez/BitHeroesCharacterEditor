@@ -72,12 +72,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converter\ItemQualityToBrushConverter.cs" />
+    <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\ItemQualityToSolidColorBrushConverter.cs" />
     <Compile Include="Message\EquipItemMessage.cs" />
-    <Compile Include="Message\UpdateStatsMessage.cs" />
+    <Compile Include="Message\UpdateEquipmentStatsMessage.cs" />
+    <Compile Include="Message\UpdateInventoryStatsMessage.cs" />
     <Compile Include="Model\ItemSlot.cs" />
     <Compile Include="Model\ItemQuality.cs" />
     <Compile Include="ViewModel\BitHeroesCharacterEditorApplication.cs" />
+    <Compile Include="ViewModel\Inventory\FilterViewModel.cs" />
     <Compile Include="ViewModel\Stats\HasStats.cs" />
     <Compile Include="ViewModel\Stats\StatsViewModel.cs" />
     <Compile Include="ViewModel\Equipment\AccessoryViewModel.cs" />
@@ -141,6 +144,10 @@
     <Page Include="View\UserControls\InfoSection\PassiveBonusesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\InventorySection\FilterUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

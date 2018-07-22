@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using System.Windows.Markup;
 using System.Windows.Media;
 using BitHeroesCharacterEditor.Model;
 
 namespace BitHeroesCharacterEditor.Converter
 {
     [ValueConversion(typeof(ItemQuality), typeof(SolidColorBrush))]
-    public sealed class ItemQualityToBrushConverter : MarkupExtension, IValueConverter
+    public sealed class ItemQualityToSolidColorBrushConverter : IValueConverter
     {
-        private static readonly ItemQualityToBrushConverter Converter = new ItemQualityToBrushConverter();
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is ItemQuality i)
@@ -41,11 +38,6 @@ namespace BitHeroesCharacterEditor.Converter
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return null;
-        }
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return Converter;
         }
     }
 }

@@ -7,8 +7,9 @@
         xmlns:view="clr-namespace:BitHeroesCharacterEditor.View"
         mc:Ignorable="d"
         Title="Bit Heroes Character Editor"
-        Height="800"
-        Width="1400">
+        Height="720"
+        Width="960"
+        Background="Black">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

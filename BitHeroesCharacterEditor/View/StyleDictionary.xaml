@@ -1,6 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:BitHeroesCharacterEditor.View">
+                    xmlns:local="clr-namespace:BitHeroesCharacterEditor.View"
+                    xmlns:converter="clr-namespace:BitHeroesCharacterEditor.Converter">
+    <converter:BoolToVisibilityConverter x:Key="BoolToVisibility" />
+    <converter:ItemQualityToSolidColorBrushConverter x:Key="QualityToBrush" />
+
     <Color x:Key="ItemQualityCommonColor">#fefefe</Color>
     <Color x:Key="ItemQualityUncommonColor">#96fe7c</Color>
     <Color x:Key="ItemQualityRareColor">#929df3</Color>
@@ -68,6 +72,14 @@
     <FontFamily x:Key="8Bit">../Fonts/8-BIT WONDER.ttf#8BIT WONDER Nominal</FontFamily>
     <FontFamily x:Key="RpgAwesome">../Fonts/rpgawesome.ttf#rpg-awesome</FontFamily>
 
+    <Style x:Key="8BitCheckBox" TargetType="CheckBox">
+        <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
+        <Setter Property="FontSize" Value="9" />
+        <Setter Property="Foreground" Value="DimGray" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+
     <Style x:Key="8BitFontExtraSmall" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
         <Setter Property="FontSize" Value="9" />
@@ -86,10 +98,34 @@
         <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
     </Style>
 
-    <Style x:Key="EquipmentButton" TargetType="Button">
+    <Style x:Key="ItemButton" TargetType="Button">
         <Setter Property="Margin" Value="5" />
-        <Setter Property="Background" Value="{StaticResource DarkerBlue}" />
-        <Setter Property="Foreground" Value="{StaticResource LighterBlue}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="{Binding Quality, Converter={StaticResource QualityToBrush}}" BorderThickness="5" Margin="5">
+                        <Grid Background="Black">
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FilterButton" TargetType="Button">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="{StaticResource DarkBlue}" BorderThickness="5" Margin="5">
+                        <Grid Background="{StaticResource LightBlue}">
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="MyTextBox" TargetType="TextBox">

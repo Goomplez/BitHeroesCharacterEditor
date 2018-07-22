@@ -189,7 +189,7 @@ namespace BitHeroesCharacterEditor.ViewModel
                 stats.CaptureRate += item.Stats.CaptureRate;
             }
 
-            MessengerInstance.Send(new UpdateStatsMessage(stats));
+            MessengerInstance.Send(new UpdateEquipmentStatsMessage(stats));
         }
     }
 }

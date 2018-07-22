@@ -2,9 +2,9 @@
 
 namespace BitHeroesCharacterEditor.Message
 {
-    public class UpdateStatsMessage
+    public class UpdateInventoryStatsMessage
     {
-        public UpdateStatsMessage(StatsViewModel vm)
+        public UpdateInventoryStatsMessage(StatsViewModel vm)
         {
             Vm = vm;
         }

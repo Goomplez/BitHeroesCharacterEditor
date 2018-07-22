@@ -7,8 +7,8 @@
              xmlns:vm="clr-namespace:BitHeroesCharacterEditor.ViewModel"
              d:DataContext="{d:DesignInstance Type=vm:BaseItemViewModel}"
              mc:Ignorable="d"
-             d:DesignHeight="450"
-             d:DesignWidth="800">
+             d:DesignHeight="400"
+             d:DesignWidth="400">
     <x:Code>
         <![CDATA[ public EquipmentUserControl() { InitializeComponent(); }]]>
     </x:Code>
@@ -17,13 +17,14 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../StyleDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <converter:ItemQualityToBrushConverter x:Key="QualityToBrush" />
+            <converter:ItemQualityToSolidColorBrushConverter x:Key="QualityToBrush" />
         </ResourceDictionary>
     </UserControl.Resources>
-    <Button Style="{DynamicResource EquipmentButton}"
-            Content=""
-            FontFamily="{StaticResource 8Bit}"
-            FontSize="32">
+    <Button Style="{DynamicResource ItemButton}"
+            Background="{Binding Quality, Converter={StaticResource QualityToBrush}}">
+        <Grid Background="Black" HorizontalAlignment="Stretch" Margin="5">
+            <Image Source="../../../Images/Power.png" />
+        </Grid>
         <Button.ToolTip>
             <Grid Background="Black">
                 <Grid.Resources>

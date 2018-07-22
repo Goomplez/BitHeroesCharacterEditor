@@ -4,62 +4,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BitHeroesCharacterEditor.View"
+             xmlns:viewModel="clr-namespace:BitHeroesCharacterEditor.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewModel:InventorySectionViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
     <x:Code>
         <![CDATA[ public InventorySection() { InitializeComponent(); }]]>
     </x:Code>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource ItemButton}" TargetType="Button" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <StackPanel Name="Filters" Grid.Row="0"
-                    Orientation="Vertical">
-            <StackPanel Name="Quality"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <CheckBox Content="Common" />
-                <CheckBox Content="Uncommon" />
-                <CheckBox Content="Rare" />
-                <CheckBox Content="Epic" />
-                <CheckBox Content="Legendary" />
-                <CheckBox Content="Set" />
-                <CheckBox Content="Mythic" />
-            </StackPanel>
 
-            <StackPanel Name="Tiers"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <CheckBox Content="Tier 1" />
-                <CheckBox Content="Tier 2" />
-                <CheckBox Content="Tier 3" />
-                <CheckBox Content="Tier 4" />
-                <CheckBox Content="Tier 5" />
-                <CheckBox Content="Tier 6" />
-                <CheckBox Content="Tier 7" />
-                <CheckBox Content="Tier 8" />
-            </StackPanel>
+        <Button Grid.Column="1" Grid.Row="1" />
+        <Button Grid.Column="2" Grid.Row="1" />
+        <Button Grid.Column="3" Grid.Row="1" />
+        <Button Grid.Column="4" Grid.Row="1" />
+        <Button Grid.Column="0" Grid.Row="1" />
+        <Button Grid.Column="0" Grid.Row="2" />
+        <Button Grid.Column="0" Grid.Row="3" />
+        <Button Grid.Column="0" Grid.Row="4" />
+        <Button Grid.Column="0" Grid.Row="5" />
+        <Button Grid.Column="0" Grid.Row="6" />
+        <Button Grid.Column="0" Grid.Row="7" />
 
-            <StackPanel Name="Slot"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <CheckBox Content="Mainhand" />
-                <CheckBox Content="Offhand" />
-                <CheckBox Content="Head" />
-                <CheckBox Content="Body" />
-                <CheckBox Content="Neck" />
-                <CheckBox Content="Ring" />
-                <CheckBox Content="Accessory" />
-                <CheckBox Content="Pet" />
-                <CheckBox Content="Mount" />
-            </StackPanel>
-        </StackPanel>
-
-        <ItemsControl Grid.Row="1">
-            
-        </ItemsControl>
+        <local:FilterUserControl Grid.Column="0"
+                                 Grid.Row="0"
+                                 Grid.ColumnSpan="2"
+                                 Grid.RowSpan="8"
+                                 DataContext="{Binding Filter}" />
     </Grid>
 </UserControl>

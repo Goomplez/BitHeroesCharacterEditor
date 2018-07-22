@@ -28,10 +28,13 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         public void RegisterMessages()
         {
-            MessengerInstance.Register<UpdateStatsMessage>(this, m =>
+            MessengerInstance.Register<UpdateEquipmentStatsMessage>(this, m =>
             {
                 _infoSection.Stats = m.Vm;
                 _equipmentSection.Stats = m.Vm;
+            });
+            MessengerInstance.Register<UpdateInventoryStatsMessage>(this, m =>
+            {
                 _inventorySection.Stats = m.Vm;
             });
         }
