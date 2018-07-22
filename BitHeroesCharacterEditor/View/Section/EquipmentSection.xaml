@@ -32,80 +32,41 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Button Name="Mainhand"
-                Grid.Column="0"
-                Grid.Row="0"
-                Style="{StaticResource EquipmentButton}"
-                Command="{Binding Command}">
-            Mainhand
-            <Button.ToolTip>
-                <StackPanel>
-                    
-                </StackPanel>
-            </Button.ToolTip>
-        </Button>
-
-        <Button Name="Offhand"
-                Grid.Column="0"
-                Grid.Row="1"
-                Style="{StaticResource EquipmentButton}">
-            Offhand
-        </Button>
-
-        <Button Name="Head"
-                Grid.Column="0"
-                Grid.Row="2"
-                Style="{StaticResource EquipmentButton}">
-            Head
-        </Button>
-
-        <Button Name="Body"
-                Grid.Column="0"
-                Grid.Row="3"
-                Style="{StaticResource EquipmentButton}">
-            Body
-        </Button>
-
-        <Button Name="Neck"
-                Grid.Column="2"
-                Grid.Row="0"
-                Style="{StaticResource EquipmentButton}">
-            Neck
-        </Button>
-
-        <Button Name="Finger"
-                Grid.Column="2"
-                Grid.Row="1"
-                Style="{StaticResource EquipmentButton}">
-            Finger
-        </Button>
-
-        <Button Name="Accessory"
-                Grid.Column="2"
-                Grid.Row="2"
-                Style="{StaticResource EquipmentButton}">
-            Accessory
-        </Button>
-
-        <Button Name="Pet"
-                Grid.Column="2"
-                Grid.Row="3"
-                Style="{StaticResource EquipmentButton}">
-            Pet
-        </Button>
-
-        <Button Name="Mount"
-                Grid.Column="1"
-                Grid.Row="3"
-                Style="{StaticResource EquipmentButton}">
-            Mount
-        </Button>
-
-        <StackPanel Name="MiddleSection"
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Grid.RowSpan="3">
-            
-        </StackPanel>
+        <local:TooltipUserControl 
+            Grid.Column="0"
+            Grid.Row="0"
+            DataContext="{Binding Mainhand}" />
+        <local:TooltipUserControl 
+            Grid.Column="0"
+            Grid.Row="1"
+            DataContext="{Binding Offhand}" />
+        <local:TooltipUserControl 
+            Grid.Column="0"
+            Grid.Row="2"
+            DataContext="{Binding Head}" />
+        <local:TooltipUserControl 
+            Grid.Column="0"
+            Grid.Row="3"
+            DataContext="{Binding Body}" />
+        <local:TooltipUserControl 
+            Grid.Column="2"
+            Grid.Row="0"
+            DataContext="{Binding Neck}" />
+        <local:TooltipUserControl 
+            Grid.Column="2"
+            Grid.Row="1"
+            DataContext="{Binding Finger}" />
+        <local:TooltipUserControl 
+            Grid.Column="2"
+            Grid.Row="2"
+            DataContext="{Binding Accessory}" />
+        <local:TooltipUserControl 
+            Grid.Column="2"
+            Grid.Row="3"
+            DataContext="{Binding Pet}" />
+        <local:TooltipUserControl 
+            Grid.Column="1"
+            Grid.Row="3"
+            DataContext="{Binding Mount}" />
     </Grid>
 </UserControl>

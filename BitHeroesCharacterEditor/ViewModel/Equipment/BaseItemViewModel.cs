@@ -5,6 +5,8 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public class BaseItemViewModel : ViewModelBase
     {
+        public string ItemName { get; set; }
+        public int Tier { get; set; }
         public ItemSlot Slot { get; set; }
         public ItemQuality Quality { get; set; }
         public int Power { get; set; }

@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using BitHeroesCharacterEditor.Message;
+﻿using BitHeroesCharacterEditor.Message;
 using BitHeroesCharacterEditor.Message.Equipment;
+using BitHeroesCharacterEditor.Model;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
@@ -11,8 +11,6 @@ namespace BitHeroesCharacterEditor.ViewModel
         private RelayCommand _command;
 
         public RelayCommand Command => _command ?? (_command = new RelayCommand(Method));
-
-        public ObservableCollection<BaseItemViewModel> Items { get; set; }
 
         public MainhandViewModel Mainhand { get; set; } = new MainhandViewModel();
         public OffhandViewModel Offhand { get; set; } = new OffhandViewModel();
@@ -28,7 +26,15 @@ namespace BitHeroesCharacterEditor.ViewModel
             IMessenger messenger)
             : base(messenger)
         {
-            Items = new ObservableCollection<BaseItemViewModel>();
+            Mainhand = new MainhandViewModel
+            {
+                ItemName = "Soulkeeper",
+                Quality = ItemQuality.Set,
+                Power = 24,
+                Stamina = 112,
+                Agility = 24,
+
+            };
         }
 
         protected override void RegisterMessages()
