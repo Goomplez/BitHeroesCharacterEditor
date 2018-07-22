@@ -2,6 +2,7 @@
 {
     public enum ItemSlot
     {
+        Slot = 0,
         Mainhand = 1,
         Offhand = 2,
         Head = 3,
