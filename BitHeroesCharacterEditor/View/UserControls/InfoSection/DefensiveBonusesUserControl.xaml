@@ -12,7 +12,22 @@
     <x:Code>
         <![CDATA[ public DefensiveBonusesUserControl() { InitializeComponent(); }]]>
     </x:Code>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource 8BitFontExtraSmall}" TargetType="TextBlock" />
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -23,51 +38,37 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="EvadeChance"
-                    Grid.Row="0"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="EvadeChance" Grid.Row="0">
             <TextBlock Text="Evade Chance: " />
             <TextBlock Text="{Binding EvadeChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="BlockChance"
-                    Grid.Row="1"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="BlockChance" Grid.Row="1">
             <TextBlock Text="Block Chance: " />
             <TextBlock Text="{Binding BlockChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="LifeSteal"
-                    Grid.Row="2"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="LifeSteal" Grid.Row="2">
             <TextBlock Text="Life Steal: " />
             <TextBlock Text="{Binding LifeSteal}" />
         </StackPanel>
 
-        <StackPanel x:Name="DeflectChance"
-                    Grid.Row="3"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="DeflectChance" Grid.Row="3">
             <TextBlock Text="Deflect Chance: " />
             <TextBlock Text="{Binding DeflectChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="AbsorbChance"
-                    Grid.Row="4"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="AbsorbChance" Grid.Row="4">
             <TextBlock Text="Absorb Chance: " />
             <TextBlock Text="{Binding AbsorbChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="DamageReduction"
-                    Grid.Row="5"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="DamageReduction" Grid.Row="5">
             <TextBlock Text="Damage Reduction: " />
             <TextBlock Text="{Binding DamageReduction}" />
         </StackPanel>
 
-        <StackPanel x:Name="RedirectChance"
-                    Grid.Row="6"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="RedirectChance" Grid.Row="6">
             <TextBlock Text="Redirect Chance: " />
             <TextBlock Text="{Binding RedirectChance}" />
         </StackPanel>

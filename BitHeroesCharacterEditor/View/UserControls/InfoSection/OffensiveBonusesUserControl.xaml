@@ -12,7 +12,22 @@
     <x:Code>
         <![CDATA[ public OffensiveBonusesUserControl() { InitializeComponent(); }]]>
     </x:Code>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource 8BitFontExtraSmall}" TargetType="TextBlock" />
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -22,44 +37,32 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="CriticalChance"
-                    Grid.Row="0"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="CriticalChance" Grid.Row="0">
             <TextBlock Text="Critical Chance: " />
             <TextBlock Text="{Binding CriticalChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="CriticalDamage"
-                    Grid.Row="1"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="CriticalDamage" Grid.Row="1">
             <TextBlock Text="Critical Damage: " />
             <TextBlock Text="{Binding CriticalDamage}" />
         </StackPanel>
 
-        <StackPanel x:Name="DamageEnrage"
-                    Grid.Row="2"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="DamageEnrage" Grid.Row="2">
             <TextBlock Text="Damage Enrage: " />
             <TextBlock Text="{Binding DamageEnrage}" />
         </StackPanel>
 
-        <StackPanel x:Name="DualStrike"
-                    Grid.Row="3"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="DualStrike" Grid.Row="3">
             <TextBlock Text="Dual Strike: " />
             <TextBlock Text="{Binding DualStrike}" />
         </StackPanel>
 
-        <StackPanel x:Name="EmpowerChance"
-                    Grid.Row="4"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="EmpowerChance" Grid.Row="4">
             <TextBlock Text="Empower Chance: " />
             <TextBlock Text="{Binding EmpowerChance}" />
         </StackPanel>
 
-        <StackPanel x:Name="QuadStrike"
-                    Grid.Row="5"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="QuadStrike" Grid.Row="5">
             <TextBlock Text="Quad Strike: " />
             <TextBlock Text="{Binding QuadStrike}" />
         </StackPanel>

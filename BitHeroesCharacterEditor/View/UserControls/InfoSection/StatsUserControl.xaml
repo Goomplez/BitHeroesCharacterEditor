@@ -12,7 +12,22 @@
     <x:Code>
         <![CDATA[ public StatsUserControl() { InitializeComponent(); }]]>
     </x:Code>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../StyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource 8BitFontExtraSmall}" TargetType="TextBlock" />
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -23,51 +38,37 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="Power"
-                    Grid.Row="0"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="Power" Grid.Row="0">
             <TextBlock Text="Power: " />
             <TextBlock Text="{Binding Power}" />
         </StackPanel>
 
-        <StackPanel x:Name="Stamina"
-                    Grid.Row="1"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="Stamina" Grid.Row="1">
             <TextBlock Text="Stamina: " />
             <TextBlock Text="{Binding Stamina}" />
         </StackPanel>
 
-        <StackPanel x:Name="Agility"
-                    Grid.Row="2"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="Agility" Grid.Row="2">
             <TextBlock Text="Agility: " />
             <TextBlock Text="{Binding Agility}" />
         </StackPanel>
 
-        <StackPanel x:Name="TotalStats"
-                    Grid.Row="3"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="TotalStats" Grid.Row="3">
             <TextBlock Text="Total Stats: " />
             <TextBlock Text="{Binding TotalStats}" />
         </StackPanel>
 
-        <StackPanel x:Name="DamageBonus"
-                    Grid.Row="4"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="DamageBonus" Grid.Row="4">
             <TextBlock Text="Damage Bonus: " />
             <TextBlock Text="{Binding DamageBonus}" />
         </StackPanel>
 
-        <StackPanel x:Name="HealthBonus"
-                    Grid.Row="5"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="HealthBonus" Grid.Row="5">
             <TextBlock Text="Health Bonus: " />
             <TextBlock Text="{Binding HealthBonus}" />
         </StackPanel>
 
-        <StackPanel x:Name="SpeedBonus"
-                    Grid.Row="6"
-                    Orientation="Horizontal">
+        <StackPanel x:Name="SpeedBonus" Grid.Row="6">
             <TextBlock Text="Speed Bonus: " />
             <TextBlock Text="{Binding SpeedBonus}" />
         </StackPanel>

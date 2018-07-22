@@ -68,6 +68,12 @@
     <FontFamily x:Key="8Bit">../Fonts/8-BIT WONDER.ttf#8BIT WONDER Nominal</FontFamily>
     <FontFamily x:Key="RpgAwesome">../Fonts/rpgawesome.ttf#rpg-awesome</FontFamily>
 
+    <Style x:Key="8BitFontExtraSmall" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
+        <Setter Property="FontSize" Value="9" />
+        <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
+    </Style>
+
     <Style x:Key="8BitFontSmall" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
         <Setter Property="FontSize" Value="18" />
@@ -118,8 +124,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControl">
-                    <Border Name="SectionBorder" BorderBrush="{StaticResource DarkRed}" BorderThickness="2" Margin="5">
-                        <Grid Background="{StaticResource LighterGreen}">
+                    <Border Name="SectionBorder" BorderBrush="{StaticResource ItemQualitySet}" BorderThickness="2" Margin="5">
+                        <Grid Background="DimGray">
                             <ContentPresenter />
                         </Grid>
                     </Border>
