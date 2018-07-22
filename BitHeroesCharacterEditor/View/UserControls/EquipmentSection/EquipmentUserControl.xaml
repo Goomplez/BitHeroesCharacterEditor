@@ -55,7 +55,7 @@
                            Grid.Row="0"
                            Text="{Binding ItemName}"
                            TextWrapping="Wrap"
-                           MaxWidth="300"
+                           MaxWidth="320"
                            Foreground="{Binding Quality, Converter={StaticResource QualityToBrush}}" />
 
                 <Grid x:Name="IconQualitySlotTier" Grid.Row="1">

@@ -20,6 +20,13 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource 8BitFontSmall}" TargetType="TextBlock">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -71,6 +78,25 @@
             Grid.Row="3"
             DataContext="{Binding Mount}" />
 
-        
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Image Source="../../../Images/Power.png"
+                   Width="40"
+                   Height="40" />
+            <TextBlock Text="{Binding Stats.Power}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <Image Source="../../../Images/Stamina.png"
+                   Width="40"
+                   Height="40" />
+            <TextBlock Text="{Binding Stats.Stamina}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="2">
+            <Image Source="../../../Images/Agility.png"
+                   Width="40"
+                   Height="40" />
+            <TextBlock Text="{Binding Stats.Agility}" />
+        </StackPanel>
     </Grid>
 </UserControl>

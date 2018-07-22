@@ -77,6 +77,7 @@
     <Compile Include="Message\UpdateStatsMessage.cs" />
     <Compile Include="Model\ItemSlot.cs" />
     <Compile Include="Model\ItemQuality.cs" />
+    <Compile Include="ViewModel\BitHeroesCharacterEditorApplication.cs" />
     <Compile Include="ViewModel\Stats\HasStats.cs" />
     <Compile Include="ViewModel\Stats\StatsViewModel.cs" />
     <Compile Include="ViewModel\Equipment\AccessoryViewModel.cs" />

@@ -1,9 +1,8 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public abstract class BaseSectionViewModel : ViewModelBase
+    public abstract class BaseSectionViewModel : HasStats
     {
         public BaseSectionViewModel(IMessenger messenger)
         {

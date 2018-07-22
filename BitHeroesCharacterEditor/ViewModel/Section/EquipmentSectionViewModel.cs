@@ -10,7 +10,7 @@ namespace BitHeroesCharacterEditor.ViewModel
     {
         private RelayCommand _command;
 
-        public RelayCommand Command => _command ?? (_command = new RelayCommand(Method));
+        public RelayCommand Command => _command ?? (_command = new RelayCommand(CalculateStats));
 
         public ObservableCollection<BaseItemViewModel> List { get; set; }
 
@@ -142,8 +142,6 @@ namespace BitHeroesCharacterEditor.ViewModel
                 Pet,
                 Mount
             };
-
-            Method();
         }
 
         protected override void RegisterMessages()
@@ -159,7 +157,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             MessengerInstance.Register<EquipItemMessage<MountViewModel>>(this, m => { Mount = m.Vm; });
         }
 
-        public void Method()
+        public void CalculateStats()
         {
             var stats = new StatsViewModel();
 

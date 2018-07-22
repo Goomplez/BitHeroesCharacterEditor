@@ -13,6 +13,11 @@ namespace BitHeroesCharacterEditor
             var infoSectionViewModel = new InfoSectionViewModel(messenger);
             var equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
             var inventorySectionViewModel = new InventorySectionViewModel(messenger);
+            var application = new BitHeroesCharacterEditorApplication(
+                messenger,
+                infoSectionViewModel,
+                equipmentSectionViewModel,
+                inventorySectionViewModel);
 
             InitializeComponent();
 
