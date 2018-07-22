@@ -1,5 +1,4 @@
 ﻿using BitHeroesCharacterEditor.Message;
-using BitHeroesCharacterEditor.Message.Equipment;
 using BitHeroesCharacterEditor.Model;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -32,8 +31,7 @@ namespace BitHeroesCharacterEditor.ViewModel
                 Quality = ItemQuality.Set,
                 Power = 24,
                 Stamina = 112,
-                Agility = 24,
-
+                Agility = 24
             };
         }
 

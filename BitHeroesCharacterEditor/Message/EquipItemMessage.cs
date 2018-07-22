@@ -1,4 +1,4 @@
-﻿namespace BitHeroesCharacterEditor.Message.Equipment
+﻿namespace BitHeroesCharacterEditor.Message
 {
     public class EquipItemMessage<T>
     {
