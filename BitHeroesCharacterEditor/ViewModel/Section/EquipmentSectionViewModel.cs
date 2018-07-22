@@ -11,15 +11,15 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         public RelayCommand Command => _command ?? (_command = new RelayCommand(Method));
 
-        public MainhandViewModel Mainhand { get; set; } = new MainhandViewModel();
-        public OffhandViewModel Offhand { get; set; } = new OffhandViewModel();
-        public HeadViewModel Head { get; set; } = new HeadViewModel();
-        public BodyViewModel Body { get; set; } = new BodyViewModel();
-        public NeckViewModel Neck { get; set; } = new NeckViewModel();
-        public FingerViewModel Finger { get; set; } = new FingerViewModel();
-        public PetViewModel Pet { get; set; } = new PetViewModel();
-        public AccessoryViewModel Accessory { get; set; } = new AccessoryViewModel();
-        public MountViewModel Mount { get; set; } = new MountViewModel();
+        public MainhandViewModel Mainhand { get; set; }
+        public OffhandViewModel Offhand { get; set; }
+        public HeadViewModel Head { get; set; }
+        public BodyViewModel Body { get; set; }
+        public NeckViewModel Neck { get; set; }
+        public FingerViewModel Finger { get; set; }
+        public PetViewModel Pet { get; set; }
+        public AccessoryViewModel Accessory { get; set; }
+        public MountViewModel Mount { get; set; }
 
         public EquipmentSectionViewModel(
             IMessenger messenger)
@@ -45,14 +45,14 @@ namespace BitHeroesCharacterEditor.ViewModel
             };
             Head = new HeadViewModel
             {
-                ItemName = "Flight Calibrator",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Power = 18,
-                Stamina = 156,
-                Agility = 18
+                ItemName = "Eye Of Treachery",
+                Quality = ItemQuality.Legendary,
+                Tier = 6,
+                Power = 20,
+                Stamina = 170,
+                Agility = 20
             };
-            Head = new HeadViewModel
+            Body = new BodyViewModel
             {
                 ItemName = "Surveyor's Garb",
                 Quality = ItemQuality.Epic,
@@ -88,6 +88,15 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 ItemName = "Nammerz",
                 Quality = ItemQuality.Rare
+            };
+            Mount = new MountViewModel
+            {
+                ItemName = "Tort",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 188,
+                Stamina = 0,
+                Agility = 4
             };
         }
 
