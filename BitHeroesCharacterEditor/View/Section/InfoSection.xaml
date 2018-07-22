@@ -9,6 +9,9 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
+    <x:Code>
+        <![CDATA[ public InfoSection() { InitializeComponent(); }]]>
+    </x:Code>
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

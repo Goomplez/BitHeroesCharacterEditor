@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="BitHeroesCharacterEditor.View.StatsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BitHeroesCharacterEditor.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <x:Code>
+        <![CDATA[ public StatsUserControl() { InitializeComponent(); }]]>
+    </x:Code>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="Power"
+                    Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBlock Text="Power: " />
+            <TextBlock Text="{Binding Power}" />
+        </StackPanel>
+
+        <StackPanel x:Name="Stamina"
+                    Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBlock Text="Stamina: " />
+            <TextBlock Text="{Binding Stamina}" />
+        </StackPanel>
+
+        <StackPanel x:Name="Agility"
+                    Grid.Row="2"
+                    Orientation="Horizontal">
+            <TextBlock Text="Agility: " />
+            <TextBlock Text="{Binding Agility}" />
+        </StackPanel>
+
+        <StackPanel x:Name="TotalStats"
+                    Grid.Row="3"
+                    Orientation="Horizontal">
+            <TextBlock Text="Total Stats: " />
+            <TextBlock Text="{Binding TotalStats}" />
+        </StackPanel>
+
+        <StackPanel x:Name="DamageBonus"
+                    Grid.Row="4"
+                    Orientation="Horizontal">
+            <TextBlock Text="Damage Bonus: " />
+            <TextBlock Text="{Binding DamageBonus}" />
+        </StackPanel>
+
+        <StackPanel x:Name="HealthBonus"
+                    Grid.Row="5"
+                    Orientation="Horizontal">
+            <TextBlock Text="Health Bonus: " />
+            <TextBlock Text="{Binding HealthBonus}" />
+        </StackPanel>
+
+        <StackPanel x:Name="SpeedBonus"
+                    Grid.Row="6"
+                    Orientation="Horizontal">
+            <TextBlock Text="Speed Bonus: " />
+            <TextBlock Text="{Binding SpeedBonus}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

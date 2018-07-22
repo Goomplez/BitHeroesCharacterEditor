@@ -9,6 +9,9 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
+    <x:Code>
+        <![CDATA[ public EquipmentSection() { InitializeComponent(); }]]>
+    </x:Code>
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -35,6 +38,11 @@
                 Style="{StaticResource EquipmentButton}"
                 Command="{Binding Command}">
             Mainhand
+            <Button.ToolTip>
+                <StackPanel>
+                    
+                </StackPanel>
+            </Button.ToolTip>
         </Button>
 
         <Button Name="Offhand"

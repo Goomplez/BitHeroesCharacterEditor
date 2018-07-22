@@ -46,6 +46,7 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,34 +72,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message\Equipment\EquipItemMessage.cs" />
     <Compile Include="Message\TestMessage.cs" />
-    <Compile Include="ViewModel\Equipment\BaseEquipmentSlotViewModel.cs" />
+    <Compile Include="Model\ItemSlot.cs" />
+    <Compile Include="Model\ItemQuality.cs" />
+    <Compile Include="ViewModel\Equipment\BaseItemViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\AccessoryViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\MountViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\PetViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\FingerViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\NeckViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\BodyViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\HeadViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\OffhandViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\MainhandViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\TooltipViewModel.cs" />
     <Compile Include="ViewModel\Inventory\BaseInventorySlotViewModel.cs" />
     <Compile Include="ViewModel\Section\BaseSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\InfoSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\EquipmentSectionViewModel.cs" />
     <Compile Include="ViewModel\Section\InventorySectionViewModel.cs" />
-    <Compile Include="View\Section\EquipmentSection.xaml.cs">
-      <DependentUpon>EquipmentSection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Section\InventorySection.xaml.cs">
-      <DependentUpon>InventorySection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Section\InfoSection.xaml.cs">
-      <DependentUpon>InfoSection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\StatsUserControl.xaml.cs">
-      <DependentUpon>StatsUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\DefensiveBonusesUserControl.xaml.cs">
-      <DependentUpon>DefensiveBonusesUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\OffensiveBonusesUserControl.xaml.cs">
-      <DependentUpon>OffensiveBonusesUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\PassiveBonusesUserControl.xaml.cs">
-      <DependentUpon>PassiveBonusesUserControl.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,19 +120,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserControls\StatsUserControl.xaml">
+    <Page Include="View\UserControls\InfoSection\StatsUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\UserControls\DefensiveBonusesUserControl.xaml">
+    <Page Include="View\UserControls\InfoSection\DefensiveBonusesUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\UserControls\OffensiveBonusesUserControl.xaml">
+    <Page Include="View\UserControls\InfoSection\OffensiveBonusesUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\UserControls\PassiveBonusesUserControl.xaml">
+    <Page Include="View\UserControls\InfoSection\PassiveBonusesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,8 +164,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
