@@ -27,11 +27,67 @@ namespace BitHeroesCharacterEditor.ViewModel
         {
             Mainhand = new MainhandViewModel
             {
-                ItemName = "Soulkeeper",
-                Quality = ItemQuality.Set,
-                Power = 24,
-                Stamina = 112,
-                Agility = 24
+                ItemName = "Aptitude",
+                Quality = ItemQuality.Legendary,
+                Tier = 7,
+                Power = 20,
+                Stamina = 240,
+                Agility = 20
+            };
+            Offhand = new OffhandViewModel
+            {
+                ItemName = "Flight Calibrator",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 18,
+                Stamina = 156,
+                Agility = 18
+            };
+            Head = new HeadViewModel
+            {
+                ItemName = "Flight Calibrator",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 18,
+                Stamina = 156,
+                Agility = 18
+            };
+            Head = new HeadViewModel
+            {
+                ItemName = "Surveyor's Garb",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 18,
+                Stamina = 156,
+                Agility = 18
+            };
+            Neck = new NeckViewModel
+            {
+                ItemName = "Mechanical Enhancement",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 132,
+                Stamina = 30,
+                Agility = 30
+            };
+            Finger = new FingerViewModel
+            {
+                ItemName = "Robotics Chip",
+                Quality = ItemQuality.Epic,
+                Tier = 7,
+                Power = 132,
+                Stamina = 30,
+                Agility = 30
+            };
+            Accessory = new AccessoryViewModel
+            {
+                ItemName = "Volrea",
+                Quality = ItemQuality.Rare
+            };
+            Pet = new PetViewModel
+            {
+                ItemName = "Nammerz",
+                Quality = ItemQuality.Rare
             };
         }
 

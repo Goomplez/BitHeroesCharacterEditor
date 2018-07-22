@@ -20,33 +20,104 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Button Style="{DynamicResource EquipmentButton}"
-            Content="Main"
+            Content=""
             FontFamily="{StaticResource 8Bit}"
             FontSize="32">
         <Button.ToolTip>
-            <StackPanel>
-                <TextBlock Text="{Binding ItemName}" />
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Tier: " />
-                    <TextBlock Text="{Binding Tier}" />
-                    <!--<TextBlock Text="&#xe900;" FontFamily="{StaticResource RpgAwesome}" />-->
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
+            <Grid Background="DimGray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--<TextBlock Text="&#xe900;" FontFamily="{StaticResource RpgAwesome}" />-->
+                
+                <TextBlock x:Name="ItemName"
+                           Grid.Row="0"
+                           Margin="10"
+                           Text="{Binding ItemName}"
+                           Style="{StaticResource 8BitFontSmall}"
+                           HorizontalAlignment="Center" />
+
+                <Grid x:Name="IconQualitySlotTier"
+                      Grid.Row="1"
+                      Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="0"
+                               Grid.RowSpan="3"
+                               Margin="10"
+                               Text="Image"
+                               Width="60"
+                               Height="60"
+                               Style="{StaticResource 8BitFontSmall}" />
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="0"
+                               Margin="10"
+                               Text="{Binding Quality}"
+                               Style="{StaticResource 8BitFontSmall}" />
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="1"
+                               Margin="10"
+                               Text="{Binding Slot}"
+                               Style="{StaticResource 8BitFontSmall}" />
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="2"
+                                Margin="10"
+                                Orientation="Horizontal">
+                        <TextBlock Text="Tier "
+                                   Style="{StaticResource 8BitFontSmall}" />
+                        <TextBlock Text="{Binding Tier}"
+                                   Style="{StaticResource 8BitFontSmall}" />
+                    </StackPanel>
+                    
+                </Grid>
+
+                <StackPanel x:Name="Power"
+                            Grid.Row="2"
+                            Margin="10"
+                            Orientation="Horizontal">
                     <Image Source="../../../Images/Power.png" />
-                    <TextBlock Text="Power: " />
-                    <TextBlock Text="{Binding Power}" />
+                    <TextBlock Text="{Binding Power}"
+                               Style="{StaticResource 8BitFontSmall}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+
+                <StackPanel x:Name="Stamina"
+                            Grid.Row="3"
+                            Margin="10"
+                            Orientation="Horizontal">
                     <Image Source="../../../Images/Stamina.png" />
-                    <TextBlock Text="Stamina: " />
-                    <TextBlock Text="{Binding Stamina}" />
+                    <TextBlock Text="{Binding Stamina}"
+                               Style="{StaticResource 8BitFontSmall}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+
+                <StackPanel x:Name="Agility"
+                            Grid.Row="4"
+                            Margin="10"
+                            Orientation="Horizontal">
                     <Image Source="../../../Images/Agility.png" />
-                    <TextBlock Text="Agilty: " />
-                    <TextBlock Text="{Binding Agility}" />
+                    <TextBlock Text="{Binding Agility}"
+                               Style="{StaticResource 8BitFontSmall}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
         </Button.ToolTip>
     </Button>
 </UserControl>

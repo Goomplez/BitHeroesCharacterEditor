@@ -68,6 +68,18 @@
     <FontFamily x:Key="8Bit">../Fonts/8-BIT WONDER.ttf#8BIT WONDER Nominal</FontFamily>
     <FontFamily x:Key="RpgAwesome">../Fonts/rpgawesome.ttf#rpg-awesome</FontFamily>
 
+    <Style x:Key="8BitFontSmall" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
+    </Style>
+
+    <Style x:Key="8BitFontLarge" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
+    </Style>
+
     <Style x:Key="EquipmentButton" TargetType="Button">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Background" Value="{StaticResource DarkerBlue}" />
