@@ -21,7 +21,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Button Style="{DynamicResource ItemButton}"
-            Background="{Binding Quality, Converter={StaticResource QualityToBrush}}">
+            Background="{Binding Quality, Converter={StaticResource QualityToBrush}}"
+            Command="{Binding SelectItemCommand}">
         <Grid Background="Black" HorizontalAlignment="Stretch" Margin="5">
             <Image Source="../../../Images/Power.png" />
         </Grid>

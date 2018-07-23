@@ -1,4 +1,6 @@
-﻿using BitHeroesCharacterEditor.Model;
+﻿using BitHeroesCharacterEditor.Message;
+using BitHeroesCharacterEditor.Model;
+using GalaSoft.MvvmLight.Command;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
@@ -12,6 +14,15 @@ namespace BitHeroesCharacterEditor.ViewModel
         public BaseItemViewModel()
         {
 
+        }
+
+        private RelayCommand _selectItemCommand;
+
+        public RelayCommand SelectItemCommand => _selectItemCommand ?? (_selectItemCommand = new RelayCommand(SelectItem));
+
+        private void SelectItem()
+        {
+            MessengerInstance.Send(new SelectItemMessage(this));
         }
     }
 }
