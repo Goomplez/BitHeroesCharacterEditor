@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using BitHeroesCharacterEditor.Message;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
@@ -13,7 +14,7 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         protected override void RegisterMessages()
         {
-
+            MessengerInstance.Register<UpdateInfoSectionMessage>(this, m => { Stats = m.Vm; });
         }
     }
 }

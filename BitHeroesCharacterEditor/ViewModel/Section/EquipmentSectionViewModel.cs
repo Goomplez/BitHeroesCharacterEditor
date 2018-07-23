@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Net.Mail;
 using BitHeroesCharacterEditor.Message;
-using BitHeroesCharacterEditor.Model;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
@@ -8,140 +8,116 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public class EquipmentSectionViewModel : BaseSectionViewModel
     {
-        private RelayCommand _command;
+        private RelayCommand _calculateStatsCommand;
+        private MainhandViewModel _mainhand;
+        private OffhandViewModel _offhand;
+        private HeadViewModel _head;
+        private BodyViewModel _body;
+        private NeckViewModel _neck;
+        private RingViewModel _ring;
+        private AccessoryViewModel _accessory;
+        private PetViewModel _pet;
+        private MountViewModel _mount;
 
-        public RelayCommand Command => _command ?? (_command = new RelayCommand(CalculateStats));
+        public RelayCommand CalculateStatsCommand => _calculateStatsCommand ?? (_calculateStatsCommand = new RelayCommand(CalculateStats));
+        public MainhandViewModel Mainhand
+        {
+            get => _mainhand;
+            set
+            {
+                Set(ref _mainhand, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public OffhandViewModel Offhand
+        {
+            get => _offhand;
+            set
+            {
+                Set(ref _offhand, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public HeadViewModel Head
+        {
+            get => _head;
+            set
+            {
+                Set(ref _head, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public BodyViewModel Body
+        {
+            get => _body;
+            set
+            {
+                Set(ref _body, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public NeckViewModel Neck
+        {
+            get => _neck;
+            set
+            {
+                Set(ref _neck, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public RingViewModel Ring
+        {
+            get => _ring;
+            set
+            {
+                Set(ref _ring, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public PetViewModel Pet
+        {
+            get => _pet;
+            set
+            {
+                Set(ref _pet, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public AccessoryViewModel Accessory
+        {
+            get => _accessory;
+            set
+            {
+                Set(ref _accessory, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
+        public MountViewModel Mount
+        {
+            get => _mount;
+            set
+            {
+                Set(ref _mount, value);
+                UpdateItemsList();
+                CalculateStats();
+            }
+        }
 
         public ObservableCollection<BaseItemViewModel> List { get; set; }
-
-        public MainhandViewModel Mainhand { get; set; }
-        public OffhandViewModel Offhand { get; set; }
-        public HeadViewModel Head { get; set; }
-        public BodyViewModel Body { get; set; }
-        public NeckViewModel Neck { get; set; }
-        public RingViewModel Ring { get; set; }
-        public PetViewModel Pet { get; set; }
-        public AccessoryViewModel Accessory { get; set; }
-        public MountViewModel Mount { get; set; }
 
         public EquipmentSectionViewModel(
             IMessenger messenger)
             : base(messenger)
         {
-            Mainhand = new MainhandViewModel
-            {
-                ItemName = "Aptitude",
-                Quality = ItemQuality.Legendary,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 20,
-                    Stamina = 240,
-                    Agility = 20
-                }
-            };
-            Offhand = new OffhandViewModel
-            {
-                ItemName = "Flight Calibrator",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 18,
-                    Stamina = 156,
-                    Agility = 18
-                }
-            };
-            Head = new HeadViewModel
-            {
-                ItemName = "Eye Of Treachery",
-                Quality = ItemQuality.Legendary,
-                Tier = 6,
-                Stats =
-                {
-                    Power = 20,
-                    Stamina = 170,
-                    Agility = 20
-                }
-            };
-            Body = new BodyViewModel
-            {
-                ItemName = "Surveyor's Garb",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 18,
-                    Stamina = 156,
-                    Agility = 18
-                }
-            };
-            Neck = new NeckViewModel
-            {
-                ItemName = "Mechanical Enhancement",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 132,
-                    Stamina = 30,
-                    Agility = 30
-                }
-            };
-            Ring = new RingViewModel
-            {
-                ItemName = "Robotics Chip",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 132,
-                    Stamina = 30,
-                    Agility = 30
-                }
-            };
-            Accessory = new AccessoryViewModel
-            {
-                ItemName = "Volrea",
-                Quality = ItemQuality.Rare,
-                Stats =
-                {
-                    DamageReduction = 8,
-                    AbsorbChance = 2
-                }
-            };
-            Pet = new PetViewModel
-            {
-                ItemName = "Nammerz",
-                Quality = ItemQuality.Rare
-            };
-            Mount = new MountViewModel
-            {
-                ItemName = "Tort",
-                Quality = ItemQuality.Epic,
-                Tier = 7,
-                Stats =
-                {
-                    Power = 188,
-                    Stamina = 0,
-                    Agility = 4,
-                    EvadeChance = 3,
-                    MovementSpeed = 20
-                }
-            };
 
-            List = new ObservableCollection<BaseItemViewModel>
-            {
-                Mainhand,
-                Offhand,
-                Head,
-                Body,
-                Neck,
-                Ring,
-                Accessory,
-                Pet,
-                Mount
-            };
         }
 
         protected override void RegisterMessages()
@@ -157,39 +133,53 @@ namespace BitHeroesCharacterEditor.ViewModel
             MessengerInstance.Register<EquipItemMessage<MountViewModel>>(this, m => { Mount = m.Vm; });
         }
 
+        public void UpdateItemsList()
+        {
+            List.Clear();
+            if (Mainhand != null) List.Add(Mainhand);
+            if (Offhand != null) List.Add(Offhand);
+            if (Head != null) List.Add(Head);
+            if (Body != null) List.Add(Body);
+            if (Neck != null) List.Add(Neck);
+            if (Ring != null) List.Add(Ring);
+            if (Pet != null) List.Add(Pet);
+            if (Accessory != null) List.Add(Accessory);
+            if (Mount != null) List.Add(Mount);
+        }
+
         public void CalculateStats()
         {
-            var stats = new StatsViewModel();
+            Stats = new StatsViewModel();
 
             foreach (BaseItemViewModel item in List)
             {
-                stats.Power += item.Stats.Power;
-                stats.Stamina += item.Stats.Stamina;
-                stats.Agility += item.Stats.Agility;
-                stats.DamageBonus += item.Stats.DamageBonus;
-                stats.HealthBonus += item.Stats.HealthBonus;
-                stats.SpeedBonus += item.Stats.SpeedBonus;
-                stats.CriticalChance += item.Stats.CriticalChance;
-                stats.CriticalDamage += item.Stats.CriticalDamage;
-                stats.DamageEnrage += item.Stats.DamageEnrage;
-                stats.DualStrike += item.Stats.DualStrike;
-                stats.EmpowerChance += item.Stats.EmpowerChance;
-                stats.QuadStrike += item.Stats.QuadStrike;
-                stats.EvadeChance += item.Stats.EvadeChance;
-                stats.BlockChance += item.Stats.BlockChance;
-                stats.LifeSteal += item.Stats.LifeSteal;
-                stats.DeflectChance += item.Stats.DeflectChance;
-                stats.AbsorbChance += item.Stats.AbsorbChance;
-                stats.DamageReduction += item.Stats.DamageReduction;
-                stats.RedirectChance += item.Stats.RedirectChance;
-                stats.ItemFind += item.Stats.ItemFind;
-                stats.GoldFind += item.Stats.GoldFind;
-                stats.Experience += item.Stats.Experience;
-                stats.MovementSpeed += item.Stats.MovementSpeed;
-                stats.CaptureRate += item.Stats.CaptureRate;
+                Stats.Power += item.Stats.Power;
+                Stats.Stamina += item.Stats.Stamina;
+                Stats.Agility += item.Stats.Agility;
+                Stats.DamageBonus += item.Stats.DamageBonus;
+                Stats.HealthBonus += item.Stats.HealthBonus;
+                Stats.SpeedBonus += item.Stats.SpeedBonus;
+                Stats.CriticalChance += item.Stats.CriticalChance;
+                Stats.CriticalDamage += item.Stats.CriticalDamage;
+                Stats.DamageEnrage += item.Stats.DamageEnrage;
+                Stats.DualStrike += item.Stats.DualStrike;
+                Stats.EmpowerChance += item.Stats.EmpowerChance;
+                Stats.QuadStrike += item.Stats.QuadStrike;
+                Stats.EvadeChance += item.Stats.EvadeChance;
+                Stats.BlockChance += item.Stats.BlockChance;
+                Stats.LifeSteal += item.Stats.LifeSteal;
+                Stats.DeflectChance += item.Stats.DeflectChance;
+                Stats.AbsorbChance += item.Stats.AbsorbChance;
+                Stats.DamageReduction += item.Stats.DamageReduction;
+                Stats.RedirectChance += item.Stats.RedirectChance;
+                Stats.ItemFind += item.Stats.ItemFind;
+                Stats.GoldFind += item.Stats.GoldFind;
+                Stats.Experience += item.Stats.Experience;
+                Stats.MovementSpeed += item.Stats.MovementSpeed;
+                Stats.CaptureRate += item.Stats.CaptureRate;
             }
 
-            MessengerInstance.Send(new UpdateEquipmentStatsMessage(stats));
+            MessengerInstance.Send(new UpdateInfoSectionMessage(Stats));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BitHeroesCharacterEditor.Message;
 using BitHeroesCharacterEditor.Model;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
@@ -11,9 +12,9 @@ namespace BitHeroesCharacterEditor.ViewModel
         public  ItemSlot Slot { get; protected set; }
         public ItemQuality Quality { get; set; }
 
-        public BaseItemViewModel()
+        public BaseItemViewModel(IMessenger messenger)
         {
-
+            MessengerInstance = messenger;
         }
 
         private RelayCommand _selectItemCommand;

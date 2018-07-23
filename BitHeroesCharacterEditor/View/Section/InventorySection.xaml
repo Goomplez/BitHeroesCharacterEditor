@@ -93,7 +93,7 @@
         <Button x:Name="EquipButton"
                 Grid.Column="4" Grid.Row="0"
                 Style="{StaticResource SearchButton}"
-                Command="{Binding}">
+                Command="{Binding EquipItemCommand}">
             <TextBlock Text="Equip" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource 8BitFontExtraSmall}" />
         </Button>
 

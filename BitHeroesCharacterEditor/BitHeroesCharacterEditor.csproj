@@ -74,10 +74,9 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Converter\ItemQualityToSolidColorBrushConverter.cs" />
+    <Compile Include="Message\UpdateInfoSectionMessage.cs" />
     <Compile Include="Message\SelectItemMessage.cs" />
     <Compile Include="Message\EquipItemMessage.cs" />
-    <Compile Include="Message\UpdateEquipmentStatsMessage.cs" />
-    <Compile Include="Message\UpdateInventoryStatsMessage.cs" />
     <Compile Include="Model\ItemSlot.cs" />
     <Compile Include="Model\ItemQuality.cs" />
     <Compile Include="ViewModel\BitHeroesCharacterEditorApplication.cs" />
