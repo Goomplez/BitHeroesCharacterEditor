@@ -208,6 +208,25 @@
     <Resource Include="Images\Agility.png" />
     <Resource Include="Images\Stamina.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Runes\Minor\Dar2.png" />
+    <Resource Include="Images\Runes\Minor\Dar3.png" />
+    <Resource Include="Images\Runes\Minor\Dar4.png" />
+    <Resource Include="Images\Runes\Minor\Dar5.png" />
+    <Resource Include="Images\Runes\Minor\Quindi2.png" />
+    <Resource Include="Images\Runes\Minor\Quindi3.png" />
+    <Resource Include="Images\Runes\Minor\Quindi4.png" />
+    <Resource Include="Images\Runes\Minor\Quindi5.png" />
+    <Resource Include="Images\Runes\Minor\Vryn2.png" />
+    <Resource Include="Images\Runes\Minor\Vryn3.png" />
+    <Resource Include="Images\Runes\Minor\Vryn4.png" />
+    <Resource Include="Images\Runes\Minor\Vryn5.png" />
+    <Resource Include="Images\Runes\Minor\Zyrk2.png" />
+    <Resource Include="Images\Runes\Minor\Zyrk3.png" />
+    <Resource Include="Images\Runes\Minor\Zyrk4.png" />
+    <Resource Include="Images\Runes\Minor\Zyrk5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
