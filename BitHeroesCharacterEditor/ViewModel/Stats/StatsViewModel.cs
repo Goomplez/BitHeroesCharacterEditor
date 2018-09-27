@@ -4,170 +4,170 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public class StatsViewModel : ViewModelBase
     {
-        private int _power;
-        private int _stamina;
-        private int _agility;
-        private int _altPower;
-        private int _altStamina;
-        private int _altAgility;
-        private int _damageBonus;
-        private int _healthBonus;
-        private int _speedBonus;
-        private int _criticalChance;
-        private int _criticalDamage;
-        private int _damageEnrage;
-        private int _dualStrike;
-        private int _empowerChance;
-        private int _quadStrike;
-        private int _evadeChance;
-        private int _blockChance;
-        private int _lifeSteal;
-        private int _deflectChance;
-        private int _absorbChance;
-        private int _damageReduction;
-        private int _redirectChance;
-        private int _itemFind;
-        private int _goldFind;
-        private int _experience;
-        private int _movementSpeed;
-        private int _captureRate;
+        private double _power;
+        private double _stamina;
+        private double _agility;
+        private double _altPower;
+        private double _altStamina;
+        private double _altAgility;
+        private double _damageBonus;
+        private double _healthBonus;
+        private double _speedBonus;
+        private double _criticalChance;
+        private double _criticalDamage;
+        private double _damageEnrage;
+        private double _dualStrike;
+        private double _empowerChance;
+        private double _quadStrike;
+        private double _evadeChance;
+        private double _blockChance;
+        private double _lifeSteal;
+        private double _deflectChance;
+        private double _absorbChance;
+        private double _damageReduction;
+        private double _redirectChance;
+        private double _itemFind;
+        private double _goldFind;
+        private double _experience;
+        private double _movementSpeed;
+        private double _captureRate;
 
-        public int Power
+        public double Power
         {
             get => _power;
             set => Set(ref _power, value);
         }
-        public int Stamina
+        public double Stamina
         {
             get => _stamina;
             set => Set(ref _stamina, value);
         }
-        public int Agility
+        public double Agility
         {
             get => _agility;
             set => Set(ref _agility, value);
         }
-        public int AltPower
+        public double AltPower
         {
             get => _altPower;
             set => Set(ref _altPower, value);
         }
-        public int AltStamina
+        public double AltStamina
         {
             get => _altStamina;
             set => Set(ref _altStamina, value);
         }
-        public int AltAgility
+        public double AltAgility
         {
             get => _altAgility;
             set => Set(ref _altAgility, value);
         }
-        public int DamageBonus
+        public double DamageBonus
         {
             get => _damageBonus;
             set => Set(ref _damageBonus, value);
         }
-        public int HealthBonus
+        public double HealthBonus
         {
             get => _healthBonus;
             set => Set(ref _healthBonus, value);
         }
-        public int SpeedBonus
+        public double SpeedBonus
         {
             get => _speedBonus;
             set => Set(ref _speedBonus, value);
         }
-        public int CriticalChance
+        public double CriticalChance
         {
             get => _criticalChance;
             set => Set(ref _criticalChance, value);
         }
-        public int CriticalDamage
+        public double CriticalDamage
         {
             get => _criticalDamage;
             set => Set(ref _criticalDamage, value);
         }
-        public int DamageEnrage
+        public double DamageEnrage
         {
             get => _damageEnrage;
             set => Set(ref _damageEnrage, value);
         }
-        public int DualStrike
+        public double DualStrike
         {
             get => _dualStrike;
             set => Set(ref _dualStrike, value);
         }
-        public int EmpowerChance
+        public double EmpowerChance
         {
             get => _empowerChance;
             set => Set(ref _empowerChance, value);
         }
-        public int QuadStrike
+        public double QuadStrike
         {
             get => _quadStrike;
             set => Set(ref _quadStrike, value);
         }
-        public int EvadeChance
+        public double EvadeChance
         {
             get => _evadeChance;
             set => Set(ref _evadeChance, value);
         }
-        public int BlockChance
+        public double BlockChance
         {
             get => _blockChance;
             set => Set(ref _blockChance, value);
         }
-        public int LifeSteal
+        public double LifeSteal
         {
             get => _lifeSteal;
             set => Set(ref _lifeSteal, value);
         }
-        public int DeflectChance
+        public double DeflectChance
         {
             get => _deflectChance;
             set => Set(ref _deflectChance, value);
         }
-        public int AbsorbChance
+        public double AbsorbChance
         {
             get => _absorbChance;
             set => Set(ref _absorbChance, value);
         }
-        public int DamageReduction
+        public double DamageReduction
         {
             get => _damageReduction;
             set => Set(ref _damageReduction, value);
         }
-        public int RedirectChance
+        public double RedirectChance
         {
             get => _redirectChance;
             set => Set(ref _redirectChance, value);
         }
-        public int ItemFind
+        public double ItemFind
         {
             get => _itemFind;
             set => Set(ref _itemFind, value);
         }
-        public int GoldFind
+        public double GoldFind
         {
             get => _goldFind;
             set => Set(ref _goldFind, value);
         }
-        public int Experience
+        public double Experience
         {
             get => _experience;
             set => Set(ref _experience, value);
         }
-        public int MovementSpeed
+        public double MovementSpeed
         {
             get => _movementSpeed;
             set => Set(ref _movementSpeed, value);
         }
-        public int CaptureRate
+        public double CaptureRate
         {
             get => _captureRate;
             set => Set(ref _captureRate, value);
         }
 
-        public int TotalStats => Power + Stamina + Agility;
+        public double TotalStats => Power + Stamina + Agility;
     }
 }
