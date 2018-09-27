@@ -40,6 +40,7 @@
         <view:InventorySection
             x:Name="InventorySection"
             Grid.Column="1"
+            Grid.Row="0"
             Grid.RowSpan="2"
             Style="{StaticResource MySection}" />
     </Grid>
