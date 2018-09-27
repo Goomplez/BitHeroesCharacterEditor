@@ -2,13 +2,13 @@
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
-    public class NeckViewModel : BaseItemViewModel
+    public class MajorRuneViewModel : BaseRuneViewModel
     {
-        public NeckViewModel(
+        public MajorRuneViewModel(
             IMessenger messenger)
             : base(messenger)
         {
-            
+
         }
     }
 }

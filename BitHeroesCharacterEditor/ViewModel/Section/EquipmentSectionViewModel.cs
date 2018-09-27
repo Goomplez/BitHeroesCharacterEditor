@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Net.Mail;
 using BitHeroesCharacterEditor.Message;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -8,7 +7,8 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public class EquipmentSectionViewModel : BaseSectionViewModel
     {
-        private RelayCommand _calculateStatsCommand;
+        private RelayCommand _openRunesCommand;
+        private RelayCommand _openEnchantsCommand;
         private MainhandViewModel _mainhand;
         private OffhandViewModel _offhand;
         private HeadViewModel _head;
@@ -19,7 +19,8 @@ namespace BitHeroesCharacterEditor.ViewModel
         private PetViewModel _pet;
         private MountViewModel _mount;
 
-        public RelayCommand CalculateStatsCommand => _calculateStatsCommand ?? (_calculateStatsCommand = new RelayCommand(CalculateStats));
+        public RelayCommand OpenRunesCommand => _openRunesCommand ?? (_openRunesCommand = new RelayCommand(OpenRunes));
+        public RelayCommand OpenEnchantsCommand => _openEnchantsCommand ?? (_openEnchantsCommand = new RelayCommand(OpenEnchants));
         public MainhandViewModel Mainhand
         {
             get => _mainhand;
@@ -27,7 +28,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _mainhand, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public OffhandViewModel Offhand
@@ -37,7 +38,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _offhand, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public HeadViewModel Head
@@ -47,7 +48,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _head, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public BodyViewModel Body
@@ -57,7 +58,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _body, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public NeckViewModel Neck
@@ -67,7 +68,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _neck, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public RingViewModel Ring
@@ -77,7 +78,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _ring, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public PetViewModel Pet
@@ -87,7 +88,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _pet, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public AccessoryViewModel Accessory
@@ -97,7 +98,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _accessory, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
         public MountViewModel Mount
@@ -107,11 +108,13 @@ namespace BitHeroesCharacterEditor.ViewModel
             {
                 Set(ref _mount, value);
                 UpdateItemsList();
-                CalculateStats();
+                CalculateEquipmentStats();
             }
         }
 
         public ObservableCollection<BaseItemViewModel> List { get; set; }
+        public ObservableCollection<BaseItemViewModel> Runes { get; set; }
+        public ObservableCollection<BaseItemViewModel> Enchants { get; set; }
 
         public EquipmentSectionViewModel(
             IMessenger messenger)
@@ -133,7 +136,17 @@ namespace BitHeroesCharacterEditor.ViewModel
             MessengerInstance.Register<EquipItemMessage<MountViewModel>>(this, m => { Mount = m.Vm; });
         }
 
-        public void UpdateItemsList()
+        private void OpenRunes()
+        {
+
+        }
+
+        private void OpenEnchants()
+        {
+
+        }
+
+        private void UpdateItemsList()
         {
             List.Clear();
             if (Mainhand != null) List.Add(Mainhand);
@@ -147,11 +160,22 @@ namespace BitHeroesCharacterEditor.ViewModel
             if (Mount != null) List.Add(Mount);
         }
 
-        public void CalculateStats()
+        private void CalculateEquipmentStats()
         {
             Stats = new StatsViewModel();
 
-            foreach (BaseItemViewModel item in List)
+            AddToStats(List);
+            AddToStats(Runes);
+            AddToStats(Enchants);
+
+            MessengerInstance.Send(new UpdateInfoSectionMessage(Stats));
+        }
+
+        private void AddToStats(ObservableCollection<BaseItemViewModel> items)
+        {
+            if (items == null) return;
+
+            foreach (var item in items)
             {
                 Stats.Power += item.Stats.Power;
                 Stats.Stamina += item.Stats.Stamina;
@@ -178,8 +202,6 @@ namespace BitHeroesCharacterEditor.ViewModel
                 Stats.MovementSpeed += item.Stats.MovementSpeed;
                 Stats.CaptureRate += item.Stats.CaptureRate;
             }
-
-            MessengerInstance.Send(new UpdateInfoSectionMessage(Stats));
         }
     }
 }

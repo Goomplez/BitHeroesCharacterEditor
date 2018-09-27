@@ -78,6 +78,16 @@
             Grid.Row="3"
             DataContext="{Binding Mount}" />
 
+        <Button Grid.Column="1" Grid.Row="0"
+                Command="{Binding OpenRunesCommand}">
+            Runes
+        </Button>
+
+        <Button Grid.Column="3" Grid.Row="0"
+                Command="{Binding OpenEnchantsCommand}">
+            Enchants
+        </Button>
+
         <StackPanel Grid.Column="1" Grid.Row="2">
             <Image Source="../../../Images/Power.png"
                    Width="40"

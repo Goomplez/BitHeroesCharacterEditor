@@ -7,10 +7,31 @@ namespace BitHeroesCharacterEditor.ViewModel
 {
     public abstract class BaseItemViewModel : HasStats
     {
-        public string ItemName { get; set; }
-        public int Tier { get; set; }
-        public  ItemSlot Slot { get; protected set; }
-        public ItemQuality Quality { get; set; }
+        private string _itemName;
+        private int _tier;
+        private EquipmentType _slot;
+        private ItemQuality _quality;
+
+        public string ItemName
+        {
+            get => _itemName;
+            set => Set(ref _itemName, value);
+        }
+        public int Tier
+        {
+            get => _tier;
+            set => Set(ref _tier, value);
+        }
+        public EquipmentType Slot
+        {
+            get => _slot;
+            set => Set(ref _slot, value);
+        }
+        public ItemQuality Quality
+        {
+            get => _quality;
+            set => Set(ref _quality, value);
+        }
 
         public BaseItemViewModel(IMessenger messenger)
         {

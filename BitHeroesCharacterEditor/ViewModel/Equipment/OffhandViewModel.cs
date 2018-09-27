@@ -1,5 +1,4 @@
-﻿using BitHeroesCharacterEditor.Model;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 
 namespace BitHeroesCharacterEditor.ViewModel
 {
@@ -9,7 +8,7 @@ namespace BitHeroesCharacterEditor.ViewModel
             IMessenger messenger)
             : base(messenger)
         {
-            Slot = ItemSlot.Offhand;
+            
         }
     }
 }

@@ -7,6 +7,9 @@ namespace BitHeroesCharacterEditor.ViewModel
         private int _power;
         private int _stamina;
         private int _agility;
+        private int _altPower;
+        private int _altStamina;
+        private int _altAgility;
         private int _damageBonus;
         private int _healthBonus;
         private int _speedBonus;
@@ -43,6 +46,21 @@ namespace BitHeroesCharacterEditor.ViewModel
         {
             get => _agility;
             set => Set(ref _agility, value);
+        }
+        public int AltPower
+        {
+            get => _altPower;
+            set => Set(ref _altPower, value);
+        }
+        public int AltStamina
+        {
+            get => _altStamina;
+            set => Set(ref _altStamina, value);
+        }
+        public int AltAgility
+        {
+            get => _altAgility;
+            set => Set(ref _altAgility, value);
         }
         public int DamageBonus
         {

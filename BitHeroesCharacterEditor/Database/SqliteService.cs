@@ -1,56 +1,33 @@
-﻿using System.Data.SQLite;
+﻿using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
+using BitHeroesCharacterEditor.Model;
 using BitHeroesCharacterEditor.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
-using System.Windows;
-using BitHeroesCharacterEditor.Database;
-using BitHeroesCharacterEditor.Model;
 
-namespace BitHeroesCharacterEditor
+namespace BitHeroesCharacterEditor.Database
 {
-    public partial class MainWindow : Window
+    public class SqliteService
     {
-        private InfoSectionViewModel infoSectionViewModel;
-        private EquipmentSectionViewModel equipmentSectionViewModel;
-        private InventorySectionViewModel inventorySectionViewModel;
-        private BitHeroesCharacterEditorApplication application;
+        private readonly IMessenger _messenger;
+        private readonly string _cs;
 
-        public MainWindow()
+        public SqliteService(IMessenger messenger)
         {
-            IMessenger messenger = new Messenger();
+            _messenger = messenger;
 
-            infoSectionViewModel = new InfoSectionViewModel(messenger);
-            equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
-            inventorySectionViewModel = new InventorySectionViewModel(messenger);
-            application = new BitHeroesCharacterEditorApplication(messenger, infoSectionViewModel, equipmentSectionViewModel, inventorySectionViewModel);
-
-            InitializeComponent();
-
-            InfoSection.DataContext = infoSectionViewModel;
-            EquipmentSection.DataContext = equipmentSectionViewModel;
-            InventorySection.DataContext = inventorySectionViewModel;
-
-            SqliteService sql = new SqliteService(messenger);
-            foreach (var rune in sql.SelectAllRunes())
-            {
-                equipmentSectionViewModel.Runes.Add(rune);
-            }
-
-            foreach (var item in sql.SelectAllEquipment())
-            {
-                inventorySectionViewModel.List.Add(item);
-            }
-        }
-
-        public void Db(IMessenger messenger)
-        {
             var relativePath = @"Model\BitHeroesDb.sqlite";
             var parentdir = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
             var myString = parentdir.Remove(parentdir.Length - 4, 4);
             var absolutePath = Path.Combine(myString, relativePath);
-            var cs = $@"Data Source={absolutePath};Version=3;";
+            _cs = $@"Data Source={absolutePath};Version=3;";
+        }
 
-            using (var con = new SQLiteConnection(cs))
+        public List<BaseItemViewModel> SelectAllEquipment()
+        {
+            var list = new List<BaseItemViewModel>();
+            
+            using (var con = new SQLiteConnection(_cs))
             {
                 con.Open();
 
@@ -62,47 +39,47 @@ namespace BitHeroesCharacterEditor
                         {
                             BaseItemViewModel item;
 
-                            var type = (EquipmentType) rdr.GetInt32(2);
+                            var type = (EquipmentType)rdr.GetInt32(2);
 
                             switch (type)
                             {
                                 case EquipmentType.Slot:
-                                    return;
+                                    return null;
                                 case EquipmentType.Mainhand:
-                                    item = new MainhandViewModel(messenger);
+                                    item = new MainhandViewModel(_messenger);
                                     break;
                                 case EquipmentType.Offhand:
-                                    item = new OffhandViewModel(messenger);
+                                    item = new OffhandViewModel(_messenger);
                                     break;
                                 case EquipmentType.Head:
-                                    item = new HeadViewModel(messenger);
+                                    item = new HeadViewModel(_messenger);
                                     break;
                                 case EquipmentType.Body:
-                                    item = new BodyViewModel(messenger);
+                                    item = new BodyViewModel(_messenger);
                                     break;
                                 case EquipmentType.Neck:
-                                    item = new NeckViewModel(messenger);
+                                    item = new NeckViewModel(_messenger);
                                     break;
                                 case EquipmentType.Ring:
-                                    item = new RingViewModel(messenger);
+                                    item = new RingViewModel(_messenger);
                                     break;
                                 case EquipmentType.Accessory:
-                                    item = new AccessoryViewModel(messenger);
+                                    item = new AccessoryViewModel(_messenger);
                                     break;
                                 case EquipmentType.Pet:
-                                    item = new PetViewModel(messenger);
+                                    item = new PetViewModel(_messenger);
                                     break;
                                 case EquipmentType.Mount:
-                                    item = new MountViewModel(messenger);
+                                    item = new MountViewModel(_messenger);
                                     break;
                                 default:
-                                    return;
+                                    return null;
                             }
 
                             item.ItemName = rdr.GetString(0);
                             item.Tier = rdr.GetInt32(1);
-                            item.Slot = (EquipmentType) rdr.GetInt32(2);
-                            item.Quality = (ItemQuality) rdr.GetInt32(3);
+                            item.Slot = (EquipmentType)rdr.GetInt32(2);
+                            item.Quality = (ItemQuality)rdr.GetInt32(3);
                             item.Stats = new StatsViewModel
                             {
                                 Power = rdr.GetInt32(5),
@@ -134,10 +111,24 @@ namespace BitHeroesCharacterEditor
                                 CaptureRate = rdr.GetInt32(31)
                             };
 
-                            inventorySectionViewModel.List.Add(item);
+                            list.Add(item);
                         }
                     }
                 }
+
+                con.Close();
+            }
+
+            return list;
+        }
+
+        public List<BaseItemViewModel> SelectAllRunes()
+        {
+            var list = new List<BaseItemViewModel>();
+
+            using (var con = new SQLiteConnection(_cs))
+            {
+                con.Open();
 
                 using (var cmd = new SQLiteCommand("select * from Runes", con))
                 {
@@ -152,18 +143,18 @@ namespace BitHeroesCharacterEditor
                             switch (type)
                             {
                                 case RuneType.Rune:
-                                    return;
+                                    return null;
                                 case RuneType.Minor:
-                                    baseRune = new BaseRuneViewModel(messenger);
+                                    baseRune = new MinorRuneViewModel(_messenger);
                                     break;
                                 case RuneType.Major:
-                                    baseRune = new BaseRuneViewModel(messenger);
+                                    baseRune = new MajorRuneViewModel(_messenger);
                                     break;
                                 case RuneType.Meta:
-                                    baseRune = new BaseRuneViewModel(messenger);
+                                    baseRune = new MetaRuneViewModel(_messenger);
                                     break;
                                 default:
-                                    return;
+                                    return null;
                             }
 
                             baseRune.ItemName = rdr.GetString(0);
@@ -197,13 +188,15 @@ namespace BitHeroesCharacterEditor
                                 CaptureRate = rdr.GetInt32(26)
                             };
 
-                            equipmentSectionViewModel.Runes.Add(baseRune);
+                            list.Add(baseRune);
                         }
                     }
                 }
 
                 con.Close();
             }
+
+            return list;
         }
     }
 }

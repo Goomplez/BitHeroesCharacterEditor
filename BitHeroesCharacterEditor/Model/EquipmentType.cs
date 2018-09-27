@@ -1,6 +1,6 @@
 ﻿namespace BitHeroesCharacterEditor.Model
 {
-    public enum ItemSlot
+    public enum EquipmentType
     {
         Slot = 0,
         Mainhand = 1,
