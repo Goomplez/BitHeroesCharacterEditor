@@ -19,6 +19,7 @@ namespace BitHeroesCharacterEditor.ViewModel
         private PetViewModel _pet;
         private MountViewModel _mount;
         private bool _isRunesOpen;
+        private bool _isEnchantsOpen;
 
         public RelayCommand OpenRunesCommand => _openRunesCommand ?? (_openRunesCommand = new RelayCommand(OpenRunes));
         public RelayCommand OpenEnchantsCommand => _openEnchantsCommand ?? (_openEnchantsCommand = new RelayCommand(OpenEnchants));
@@ -117,10 +118,15 @@ namespace BitHeroesCharacterEditor.ViewModel
             get => _isRunesOpen;
             set => Set(ref _isRunesOpen, value);
         }
+        public bool IsEnchantsOpen
+        {
+            get => _isEnchantsOpen;
+            set => Set(ref _isEnchantsOpen, value);
+        }
 
-        public ObservableCollection<BaseItemViewModel> List { get; set; }
-        public ObservableCollection<BaseItemViewModel> Runes { get; set; }
-        public ObservableCollection<BaseItemViewModel> Enchants { get; set; }
+        public ObservableCollection<BaseItemViewModel> List { get; set; } = new ObservableCollection<BaseItemViewModel>();
+        public ObservableCollection<BaseItemViewModel> Runes { get; set; } = new ObservableCollection<BaseItemViewModel>();
+        public ObservableCollection<BaseItemViewModel> Enchants { get; set; } = new ObservableCollection<BaseItemViewModel>();
 
         public EquipmentSectionViewModel(
             IMessenger messenger)
@@ -149,7 +155,7 @@ namespace BitHeroesCharacterEditor.ViewModel
 
         private void OpenEnchants()
         {
-
+            IsEnchantsOpen = !IsEnchantsOpen;
         }
 
         private void UpdateItemsList()

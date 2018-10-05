@@ -94,7 +94,7 @@
                 Grid.Column="4" Grid.Row="0"
                 Style="{StaticResource SearchButton}"
                 Command="{Binding EquipItemCommand}">
-            <TextBlock Text="Equip" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource 8BitFontExtraSmall}" />
+            Equip
         </Button>
 
         <local:FilterUserControl x:Name="FilterControl"

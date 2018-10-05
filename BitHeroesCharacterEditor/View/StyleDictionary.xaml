@@ -5,13 +5,13 @@
     <converter:BoolToVisibilityConverter x:Key="BoolToVisibility" />
     <converter:ItemQualityToSolidColorBrushConverter x:Key="QualityToBrush" />
 
-    <Color x:Key="ItemQualityCommonColor">#fefefe</Color>
-    <Color x:Key="ItemQualityUncommonColor">#96fe7c</Color>
-    <Color x:Key="ItemQualityRareColor">#929df3</Color>
-    <Color x:Key="ItemQualityEpicColor">#fe7f7c</Color>
-    <Color x:Key="ItemQualityLegendaryColor">#fefe00</Color>
-    <Color x:Key="ItemQualitySetColor">#00fefb</Color>
-    <Color x:Key="ItemQualityMythicColor">#fe0047</Color>
+    <Color x:Key="ItemQualityCommonColor">#FEFEFE</Color>
+    <Color x:Key="ItemQualityUncommonColor">#96fE7C</Color>
+    <Color x:Key="ItemQualityRareColor">#929DF3</Color>
+    <Color x:Key="ItemQualityEpicColor">#FE7F7C</Color>
+    <Color x:Key="ItemQualityLegendaryColor">#FEFE00</Color>
+    <Color x:Key="ItemQualitySetColor">#00FEFB</Color>
+    <Color x:Key="ItemQualityMythicColor">#FE0047</Color>
 
     <Color x:Key="LighterRedColor">#FA616C</Color>
     <Color x:Key="LightRedColor">#F93846</Color>
@@ -36,6 +36,18 @@
     <Color x:Key="YellowColor">#FFC500</Color>
     <Color x:Key="DarkYellowColor">#C59800</Color>
     <Color x:Key="DarkerYellowColor">#9B7700</Color>
+
+    <Color x:Key="LighterRuneColor">#BC44A4</Color>
+    <Color x:Key="LightRuneColor">#A62E8E</Color>
+    <Color x:Key="RuneColor">#9B2383</Color>
+    <Color x:Key="DarkRuneColor">#921A7A</Color>
+    <Color x:Key="DarkerRuneColor">#820B6A</Color>
+
+    <Color x:Key="LighterEnchantColor">#D0F06B</Color>
+    <Color x:Key="LightEnchantColor">#B4DE46</Color>
+    <Color x:Key="EnchantColor">#A3D12F</Color>
+    <Color x:Key="DarkEnchantColor">#88B415</Color>
+    <Color x:Key="DarkerEnchantColor">#6D8E09</Color>
 
     <SolidColorBrush x:Key="ItemQualityCommon" Color="{DynamicResource ItemQualityCommonColor}" />
     <SolidColorBrush x:Key="ItemQualityUncommon" Color="{DynamicResource ItemQualityUncommonColor}" />
@@ -69,6 +81,18 @@
     <SolidColorBrush x:Key="DarkYellow" Color="{DynamicResource DarkYellowColor}" />
     <SolidColorBrush x:Key="DarkerYellow" Color="{DynamicResource DarkerYellowColor}" />
 
+    <SolidColorBrush x:Key="LighterRune" Color="{DynamicResource LighterRuneColor}" />
+    <SolidColorBrush x:Key="LightRune" Color="{DynamicResource LightRuneColor}" />
+    <SolidColorBrush x:Key="Rune" Color="{DynamicResource RuneColor}" />
+    <SolidColorBrush x:Key="DarkRune" Color="{DynamicResource DarkRuneColor}" />
+    <SolidColorBrush x:Key="DarkerRune" Color="{DynamicResource DarkerRuneColor}" />
+
+    <SolidColorBrush x:Key="LighterEnchant" Color="{DynamicResource LighterEnchantColor}" />
+    <SolidColorBrush x:Key="LightEnchant" Color="{DynamicResource LightEnchantColor}" />
+    <SolidColorBrush x:Key="Enchant" Color="{DynamicResource EnchantColor}" />
+    <SolidColorBrush x:Key="DarkEnchant" Color="{DynamicResource DarkEnchantColor}" />
+    <SolidColorBrush x:Key="DarkerEnchant" Color="{DynamicResource DarkerEnchantColor}" />
+
     <FontFamily x:Key="8Bit">../Fonts/8-BIT WONDER.ttf#8BIT WONDER Nominal</FontFamily>
     <FontFamily x:Key="RpgAwesome">../Fonts/rpgawesome.ttf#rpg-awesome</FontFamily>
 
@@ -98,8 +122,14 @@
         <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
     </Style>
 
-    <Style x:Key="ItemButton" TargetType="Button">
+    <Style x:Key="BaseButton" TargetType="Button">
         <Setter Property="Margin" Value="5" />
+        <Setter Property="FontFamily" Value="{StaticResource 8Bit}" />
+        <Setter Property="FontSize" Value="9" />
+        <Setter Property="Foreground" Value="{StaticResource ItemQualityCommon}" />
+    </Style>
+
+    <Style x:Key="ItemButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -113,14 +143,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="FilterButton" TargetType="Button">
-        <Setter Property="Margin" Value="5" />
+    <Style x:Key="FilterButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="FilterBorder" BorderBrush="{StaticResource DarkBlue}" BorderThickness="5" Margin="5">
                         <Grid Name="FilterBackground" Background="{StaticResource LighterBlue}">
-                            <ContentPresenter />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -138,15 +167,13 @@
         </Setter>
     </Style>
 
-
-    <Style x:Key="SearchButton" TargetType="Button">
-        <Setter Property="Margin" Value="5" />
+    <Style x:Key="SearchButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="FilterBorder" BorderBrush="{StaticResource DarkGreen}" BorderThickness="5" Margin="5">
                         <Grid Name="FilterBackground" Background="{StaticResource LightGreen}">
-                            <ContentPresenter />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -157,6 +184,54 @@
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="FilterBorder" Property="BorderBrush" Value="{DynamicResource DarkerGreen}" />
                             <Setter TargetName="FilterBackground" Property="Background" Value="{DynamicResource DarkGreen}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RuneButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="FilterBorder" BorderBrush="{StaticResource DarkRune}" BorderThickness="5" Margin="5">
+                        <Grid Name="FilterBackground" Background="{StaticResource LightRune}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="FilterBorder" Property="BorderBrush" Value="{DynamicResource DarkerRune}" />
+                            <Setter TargetName="FilterBackground" Property="Background" Value="{DynamicResource Rune}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="FilterBorder" Property="BorderBrush" Value="{DynamicResource DarkerRune}" />
+                            <Setter TargetName="FilterBackground" Property="Background" Value="{DynamicResource DarkRune}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EnchantButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="FilterBorder" BorderBrush="{StaticResource DarkEnchant}" BorderThickness="5" Margin="5">
+                        <Grid Name="FilterBackground" Background="{StaticResource LightEnchant}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="FilterBorder" Property="BorderBrush" Value="{DynamicResource DarkerEnchant}" />
+                            <Setter TargetName="FilterBackground" Property="Background" Value="{DynamicResource Enchant}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="FilterBorder" Property="BorderBrush" Value="{DynamicResource DarkerEnchant}" />
+                            <Setter TargetName="FilterBackground" Property="Background" Value="{DynamicResource DarkEnchant}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

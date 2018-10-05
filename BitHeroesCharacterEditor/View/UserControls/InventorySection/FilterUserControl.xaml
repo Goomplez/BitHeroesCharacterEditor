@@ -105,14 +105,14 @@
         <Button Grid.Column="0" Grid.Row="0"
                 Style="{StaticResource FilterButton}"
                 Command="{Binding ShowFilterCommand}">
-            <TextBlock Text="Filters" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource 8BitFontExtraSmall}" />
+            Filters
         </Button>
 
         <Button Grid.Column="1" Grid.Row="0"
                 Style="{StaticResource SearchButton}"
                 Command="{Binding}"
                 Visibility="{Binding IsShowingFilters, Converter={StaticResource BoolToVisibility}}">
-            <TextBlock Text="Search" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource 8BitFontExtraSmall}" />
+            Search
         </Button>
     </Grid>
 </UserControl>

@@ -14,7 +14,7 @@ namespace BitHeroesCharacterEditor.ViewModel
         private BaseItemViewModel _currentItem;
 
         public FilterViewModel Filter { get; set; } = new FilterViewModel();
-        public ObservableCollection<BaseItemViewModel> List { get; set; }
+        public ObservableCollection<BaseItemViewModel> List { get; set; } = new ObservableCollection<BaseItemViewModel>();
         public BaseItemViewModel CurrentItem
         {
             get => _currentItem;

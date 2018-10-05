@@ -7,19 +7,14 @@ namespace BitHeroesCharacterEditor
 {
     public partial class MainWindow : Window
     {
-        private InfoSectionViewModel infoSectionViewModel;
-        private EquipmentSectionViewModel equipmentSectionViewModel;
-        private InventorySectionViewModel inventorySectionViewModel;
-        private BitHeroesCharacterEditorApplication application;
-
         public MainWindow()
         {
             IMessenger messenger = new Messenger();
 
-            infoSectionViewModel = new InfoSectionViewModel(messenger);
-            equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
-            inventorySectionViewModel = new InventorySectionViewModel(messenger);
-            application = new BitHeroesCharacterEditorApplication(messenger, infoSectionViewModel, equipmentSectionViewModel, inventorySectionViewModel);
+            var infoSectionViewModel = new InfoSectionViewModel(messenger);
+            var equipmentSectionViewModel = new EquipmentSectionViewModel(messenger);
+            var inventorySectionViewModel = new InventorySectionViewModel(messenger);
+            //var application = new BitHeroesCharacterEditorApplication(messenger, infoSectionViewModel, equipmentSectionViewModel, inventorySectionViewModel);
 
             InitializeComponent();
 
@@ -27,7 +22,8 @@ namespace BitHeroesCharacterEditor
             EquipmentSection.DataContext = equipmentSectionViewModel;
             InventorySection.DataContext = inventorySectionViewModel;
 
-            SqliteService sql = new SqliteService(messenger);
+            var sql = new SqliteService(messenger);
+
             foreach (var rune in sql.SelectAllRunes())
             {
                 equipmentSectionViewModel.Runes.Add(rune);
